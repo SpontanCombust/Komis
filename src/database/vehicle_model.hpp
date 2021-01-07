@@ -2,6 +2,7 @@
 #define __VEHICLE_MODEL_H__
 
 #include <string>
+#include <cstdint>
 
 enum class EVehicleType
 {
@@ -20,6 +21,12 @@ enum class EVehicleFuel
     ELECTRICITY
 };
 
+enum class EVehicleTransmission
+{
+    MANUAL,
+    AUTOMATIC
+};
+
 enum class EWheelDrive
 {
     FRONT,
@@ -29,11 +36,17 @@ enum class EWheelDrive
 
 struct SVehicleModel
 {
+    // ID number of the model
+    uint32_t id;
+
+    // main data
     EVehicleType vehicleType;
     std::string brandName;
     std::string modelName;
+
+    // details
     EVehicleFuel fuelType;
-    bool isManualTransmission;
+    EVehicleTransmission transmissionType;
     unsigned int engineHorsepower;
     unsigned int engineCapacityL;
     unsigned int doorQuantity;

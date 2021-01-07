@@ -1,10 +1,16 @@
 #ifndef __VEHICLE_COPY_H__
 #define __VEHICLE_COPY_H__
 
-#include "vehicle_model.hpp"
+#include <string>
+#include <cstdint>
 
-struct SVehicleCopy : SVehicleModel
+struct SVehicleCopy
 {
+    // ID number of an individual vehicle
+    uint32_t id;
+    // ID number of the vehicle model of this vehicle
+    uint32_t vehicleModelID;
+
     float price;
     unsigned int mileageKm;
     std::string color;
