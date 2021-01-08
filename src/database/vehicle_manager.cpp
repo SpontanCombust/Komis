@@ -24,25 +24,61 @@ SVehicleModel& CVehicleManager::getVehicleModelByID( uint32_t id )
         throw "No vehicle model with that ID found!";        
 }
 
-
-
-std::vector< uint32_t > CVehicleManager::queryVehicleModelIDs( std::vector< VehicleModelComparator > vehicleModelComparators ) 
+std::vector< uint32_t > CVehicleManager::getAllVehicleModelIDs() 
 {
-    std::vector< uint32_t > vehModelIDs;
+    std::vector< uint32_t > ids;
+
+    if( m_vehicleModelMap.empty() )
+        return ids;
 
     for( const auto& [ id, vehModel ] : m_vehicleModelMap )
     {
+        ids.push_back( id );
+    }
+
+    return ids;
+}
+
+std::vector< uint32_t > CVehicleManager::queryVehicleModelIDs( const std::vector< VehicleModelComparator >& vehicleModelComparators ) 
+{
+    // if comparator list is empty there is nothing to check, thus all vehicle models are valid
+    if( vehicleModelComparators.empty() )
+        return getAllVehicleModelIDs();
+
+    // vector for storing IDs of valid vehicle models
+    std::vector< uint32_t > vehModelIDs;
+    // variable to store the information, whether given vehicle model meets all the requirements
+    bool isValidCandidate;
+
+    // iterate over every ( id : vehicleModel ) pair in vehicle model map
+    for( const auto& [ id, vehModel ] : m_vehicleModelMap )
+    {
+        // assume model is valid before passing it to comparators
+        isValidCandidate = true;
+
+        // check every comparator in the vector
         for( const auto& comparatorFunctor : vehicleModelComparators )
         {
-            if( comparatorFunctor( vehModel ) )
+            // check if a vehicle model fulfils comparator's requirements
+            if( !comparatorFunctor( vehModel ) )
             {
-                vehModelIDs.push_back( id );
+                // if it doesn't, it means it should be filtered out
+                isValidCandidate = false;
+                break;
             }
+        }
+
+        // if a vehicle model met all the requirements, add it to ID vector to be later returned by the function
+        if( isValidCandidate )
+        {
+            vehModelIDs.push_back( id );
         }
     }
 
+    // return the ID vector of all valid candidates
     return vehModelIDs;
 }
+
 
 
 
@@ -69,22 +105,117 @@ void CVehicleManager::removeVehicleCopyByID( uint32_t id )
         throw "No vehicle copy with that ID found!";
 }
 
-
-
-std::vector< uint32_t > CVehicleManager::queryVehicleCopyIDs( std::vector< VehicleCopyComparator > vehicleCopyComparators )
+std::vector< uint32_t > CVehicleManager::getAllVehicleCopyIDs() 
 {
-    std::vector< uint32_t > vehCopyIDs;
+    std::vector< uint32_t > ids;
+
+    if( m_vehicleCopyMap.empty() )
+        return ids;
 
     for( const auto& [ id, vehCopy ] : m_vehicleCopyMap )
     {
+        ids.push_back( id );
+    }
+
+    return ids;
+}
+
+std::vector< uint32_t > CVehicleManager::queryVehicleCopyIDs( const std::vector< VehicleCopyComparator >& vehicleCopyComparators )
+{
+    // if comparator list is empty there is nothing to check, thus all vehicle copies are valid
+    if( vehicleCopyComparators.empty() )
+        return getAllVehicleCopyIDs();
+
+    // vector for storing IDs of valid vehicle copies
+    std::vector< uint32_t > vehCopyIDs;
+    // variable to store the information, whether given vehicle copy meets all the requirements
+    bool isValidCandidate;
+
+    // iterate over every ( id : vehicleCopy ) pair in vehicle copy map
+    for( const auto& [ id, vehCopy ] : m_vehicleCopyMap )
+    {
+        // assume copy is valid before passing it to comparators
+        isValidCandidate = true;
+
+        // check every comparator in the vector
         for( const auto& comparatorFunctor : vehicleCopyComparators )
         {
-            if( comparatorFunctor( vehCopy ) )
+            // check if a vehicle copy fulfils comparator's requirements
+            if( !comparatorFunctor( vehCopy ) )
             {
-                vehCopyIDs.push_back( id );
+                // if it doesn't, it means it should be filtered out
+                isValidCandidate = false;
+                break;
             }
+        }
+
+        // if a vehicle copy met all the requirements, add it to ID vector to be later returned by the function
+        if( isValidCandidate )
+        {
+            vehCopyIDs.push_back( id );
         }
     }
 
+    // return the ID vector of all valid candidates
+    return vehCopyIDs;
+}
+
+std::vector< uint32_t > CVehicleManager::queryVehicleCopyIDs( const std::vector< VehicleModelComparator >& vehicleModelComparators, const std::vector< VehicleCopyComparator >& vehicleCopyComparators )
+{
+    // if there are no vehicle model comparators, return the result obtained only through vehicle copy query
+    if( vehicleModelComparators.empty() )
+        return queryVehicleCopyIDs( vehicleCopyComparators );
+
+    // vector for storing IDs of valid vehicle models
+    std::vector< uint32_t > vehModelIDs;
+    // vector for storing IDs of filtered out valid vehicle copies
+    std::vector< uint32_t > vehCopyIDs;
+    // variable to store the information, whether given vehicle copy meets all the requirements
+    bool isValidCandidate;
+
+    // get the vector of vehicle model IDs from querying
+    vehModelIDs = queryVehicleModelIDs( vehicleModelComparators );
+
+    // iterate over every ( id : vehicleCopy ) pair in vehicle copy map
+    for( const auto& [ copyID, vehCopy ] : m_vehicleCopyMap )
+    {
+        // assume copy is valid before any of the checks
+        isValidCandidate = true;
+
+        // find if the model ID of current vehicle copy is inside the vector of queried vehicle model IDs
+        auto it = std::find( vehModelIDs.begin(), vehModelIDs.end(), vehCopy.vehicleModelID );
+        // if it is then check the rest of vehicle copy requirements from vehicleCopyComparators
+        if( it != vehModelIDs.end() )
+        {
+            // if there are no vehicle copy comparators, then this vehicle copy is already eligible, otherwise it has to be further checked
+            if( !vehicleCopyComparators.empty() )
+            {
+                // iterate over every vehicle copy comparator
+                for( const auto& comparatorFunctor : vehicleCopyComparators )
+                {
+                    // check if a vehicle copy fulfils comparator's requirements
+                    if( !comparatorFunctor( vehCopy ) )
+                    {
+                        // if it doesn't, it means it should be filtered out
+                        isValidCandidate = false;
+                        break;
+                    }
+                }
+            }
+        }
+        // otherwise this vehicle copy is not eligible
+        else
+        {
+            isValidCandidate = false;
+        }
+        
+        // if a vehicle copy met all the requirements, add it to ID vector to be later returned by the function
+        if( isValidCandidate )
+        {
+            vehCopyIDs.push_back( copyID );
+        }
+    }
+
+    // return the ID vector of all valid candidates
     return vehCopyIDs;
 }
