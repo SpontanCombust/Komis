@@ -48,6 +48,11 @@ VehicleModelComparator getVehicleModelWheelDriveTypeComparator( EWheelDrive whee
 
 
 
+VehicleCopyComparator getVehicleCopyVehicleModelIDComparator( uint32_t id ) 
+{
+    return [=]( const SVehicleCopy& vehicle ) -> bool { return vehicle.vehicleModelID == id; };
+}
+
 VehicleCopyComparator getVehicleCopyPriceRangeComparator( float priceMin, float priceMax ) 
 {
     return [=]( const SVehicleCopy& vehicle ) -> bool { return vehicle.price >= priceMin && vehicle.price <= priceMax; };

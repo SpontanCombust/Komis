@@ -21,6 +21,7 @@ VehicleModelComparator getVehicleModelWheelDriveTypeComparator( EWheelDrive whee
 
 using VehicleCopyComparator = std::function< bool( const SVehicleCopy& ) >;
 
+VehicleCopyComparator getVehicleCopyVehicleModelIDComparator( uint32_t id );
 VehicleCopyComparator getVehicleCopyPriceRangeComparator( float priceMin, float priceMax );
 VehicleCopyComparator getVehicleCopyMileageRangeComparator( unsigned int mileageMin, unsigned int mileageMax );
 VehicleCopyComparator getVehicleCopyColorComparator( std::string color );
