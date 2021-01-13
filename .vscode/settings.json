@@ -1,0 +1,24 @@
+{
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/src/**",
+        "/usr/include/**",
+        "/usr/include/SDL2",
+        "/usr/include/wx-3.0",
+        "/usr/local/include/**",
+        "/usr/local/include/wx-3.0",
+        "/usr/local/lib/wx/include/gtk2-unicode-static-3.0"
+    ],
+    "C_Cpp.default.browse.path": [
+        "${workspaceFolder}/src/**",
+        "/usr/include/**",
+        "/usr/include/SDL2",
+        "/usr/include/wx-3.0",
+        "/usr/local/include/**",
+        "usr/local/include/wx-3.0",
+        "/usr/local/lib/wx/include/gtk2-unicode-static-3.0"
+    ],
+    "files.associations": {
+        "cstdint": "cpp",
+        "functional": "cpp"
+    }
+}
