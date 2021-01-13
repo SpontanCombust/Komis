@@ -7,10 +7,10 @@
 class CVehicleCreatorDialog : public IVehicleCreatorDialog
 {
 public:
-    CVehicleCreatorDialog( wxWindow *parent, wxWindowID id, CVehicleManager *database );
+    CVehicleCreatorDialog( CVehicleManager *database, wxWindow *parent );
     ~CVehicleCreatorDialog();
 
-    virtual void OnAddVehicleButtonClicked( wxCommandEvent& event ) override;
+    virtual void OnSubmitVehicleButtonClicked( wxCommandEvent& event ) override;
 };
 
 

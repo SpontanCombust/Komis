@@ -64,15 +64,15 @@ class IVehicleCreatorDialog : public wxDialog
 		wxTextCtrl* m_textCtrl_state;
 		wxStaticText* m_staticText_additInfo;
 		wxTextCtrl* m_textCtrl_additInfo;
-		wxButton* m_button_addVehicle;
+		wxButton* m_button_submitVehicle;
 
 		// Virtual event handlers, overide them in your derived class
-		virtual void OnAddVehicleButtonClicked( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnSubmitVehicleButtonClicked( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
 
-		IVehicleCreatorDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Kreator pojazdu"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 550,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
+		IVehicleCreatorDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Kreator pojazdu"), const wxPoint& pos = wxPoint( -1,-1 ), const wxSize& size = wxSize( 550,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~IVehicleCreatorDialog();
 
 };

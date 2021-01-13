@@ -11,7 +11,7 @@
 
 IVehicleCreatorDialog::IVehicleCreatorDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( -1,800 ), wxDefaultSize );
 
 	wxBoxSizer* bSizer1;
 	bSizer1 = new wxBoxSizer( wxVERTICAL );
@@ -152,8 +152,8 @@ IVehicleCreatorDialog::IVehicleCreatorDialog( wxWindow* parent, wxWindowID id, c
 
 	bSizer1->Add( 0, 20, 0, wxEXPAND, 5 );
 
-	m_button_addVehicle = new wxButton( this, wxID_ANY, wxT("Dodaj"), wxDefaultPosition, wxSize( 300,-1 ), 0 );
-	bSizer1->Add( m_button_addVehicle, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5 );
+	m_button_submitVehicle = new wxButton( this, wxID_ANY, wxT("Dodaj"), wxDefaultPosition, wxSize( 300,-1 ), 0 );
+	bSizer1->Add( m_button_submitVehicle, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
 	bSizer1->Add( 0, 20, 0, wxEXPAND, 5 );
@@ -165,12 +165,12 @@ IVehicleCreatorDialog::IVehicleCreatorDialog( wxWindow* parent, wxWindowID id, c
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	m_button_addVehicle->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleCreatorDialog::OnAddVehicleButtonClicked ), NULL, this );
+	m_button_submitVehicle->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleCreatorDialog::OnSubmitVehicleButtonClicked ), NULL, this );
 }
 
 IVehicleCreatorDialog::~IVehicleCreatorDialog()
 {
 	// Disconnect Events
-	m_button_addVehicle->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleCreatorDialog::OnAddVehicleButtonClicked ), NULL, this );
+	m_button_submitVehicle->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleCreatorDialog::OnSubmitVehicleButtonClicked ), NULL, this );
 
 }
