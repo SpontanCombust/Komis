@@ -1,4 +1,4 @@
-///////////////////////////////////////////////////////////////////////////
+﻿///////////////////////////////////////////////////////////////////////////
 // C++ code generated with wxFormBuilder (version Oct 26 2018)
 // http://www.wxformbuilder.org/
 //
@@ -9,6 +9,7 @@
 
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
+#include <wx/intl.h>
 #include <wx/string.h>
 #include <wx/bitmap.h>
 #include <wx/image.h>
@@ -55,7 +56,7 @@ class IKomisFrame : public wxFrame
 
 	public:
 
-		IKomisFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Komis"), const wxPoint& pos = wxPoint( -1,0 ), const wxSize& size = wxSize( 700,600 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		IKomisFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Komis"), const wxPoint& pos = wxPoint( -1,0 ), const wxSize& size = wxSize( 700,600 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~IKomisFrame();
 
