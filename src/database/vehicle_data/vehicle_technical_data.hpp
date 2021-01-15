@@ -1,6 +1,7 @@
 #ifndef __VEHICLE_TECHNICAL_DATA_H__
 #define __VEHICLE_TECHNICAL_DATA_H__
 
+#include <string>
 
 enum class EVehicleFuel
 {
@@ -30,7 +31,7 @@ struct SVehicleTechnicalData
     EWheelDrive wheelDriveType;
     unsigned int engineHorsepower;
     unsigned int engineCapacityL;
-    unsigned int doorQuantity;
+    std::string doorQuantity;
 };
 
 #endif // __VEHICLE_TECHNICAL_DATA_H__
