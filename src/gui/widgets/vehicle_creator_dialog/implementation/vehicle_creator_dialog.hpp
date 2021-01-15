@@ -6,6 +6,9 @@
 
 class CVehicleCreatorDialog : public IVehicleCreatorDialog
 {
+private:
+    CVehicleManager *m_databaseHandle;
+
 public:
     CVehicleCreatorDialog( CVehicleManager *database, wxWindow *parent );
     ~CVehicleCreatorDialog();

@@ -2,7 +2,7 @@
 
 CVehicleCreatorDialog::CVehicleCreatorDialog( CVehicleManager *database, wxWindow *parent ) : IVehicleCreatorDialog( parent )
 {
-    
+    m_databaseHandle = database;   
 }
 
 CVehicleCreatorDialog::~CVehicleCreatorDialog()
