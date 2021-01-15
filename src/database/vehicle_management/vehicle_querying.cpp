@@ -39,7 +39,7 @@ VehicleComparator getVehicleEngineCapacityRangeComparator( unsigned int engineCa
     return [=]( const SVehicle& vehicle ) -> bool { return vehicle.technicalData.engineCapacityL >= engineCapacityMin && vehicle.technicalData.engineCapacityL <= engineCapacityMax; };
 }
 
-VehicleComparator getVehicleDoorQuantityEqualComparator( unsigned int doorQuantity ) 
+VehicleComparator getVehicleDoorQuantityEqualComparator(std::string doorQuantity ) 
 {   
     return [=]( const SVehicle& vehicle ) -> bool { return vehicle.technicalData.doorQuantity == doorQuantity; };
 }
