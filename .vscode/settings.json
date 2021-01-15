@@ -1,21 +1,35 @@
 {
     "C_Cpp.default.includePath": [
+        // project exclusive
         "${workspaceFolder}/src/**",
+
+        // linux environment
         "/usr/include/**",
-        "/usr/include/SDL2",
         "/usr/include/wx-3.0",
         "/usr/local/include/**",
         "/usr/local/include/wx-3.0",
-        "/usr/local/lib/wx/include/gtk2-unicode-static-3.0"
+        "/usr/local/lib/wx/include/gtk2-unicode-static-3.0",
+
+        // windows environment
+        "${env:WXWIN}/include",
+        "${env:WXWIN}/include/msvc",
+        "${env:WXWIN}/lib/vc_lib/mswu"
     ],
     "C_Cpp.default.browse.path": [
+        // project exclusive
         "${workspaceFolder}/src/**",
+
+        // linux environment
         "/usr/include/**",
-        "/usr/include/SDL2",
         "/usr/include/wx-3.0",
         "/usr/local/include/**",
-        "usr/local/include/wx-3.0",
-        "/usr/local/lib/wx/include/gtk2-unicode-static-3.0"
+        "/usr/local/include/wx-3.0",
+        "/usr/local/lib/wx/include/gtk2-unicode-static-3.0",
+
+        // windows environment
+        "${env:WXWIN}/include",
+        "${env:WXWIN}/include/msvc",
+        "${env:WXWIN}/lib/vc_lib/mswu"
     ],
     "files.associations": {
         "cstdint": "cpp",
