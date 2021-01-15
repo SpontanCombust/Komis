@@ -5,8 +5,8 @@
 
 enum class EVehicleType
 {
-    MOTORCYCLE,
     CAR,
+    MOTORCYCLE,
     SUV,
     VAN,
     TRUCK
