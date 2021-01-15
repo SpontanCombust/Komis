@@ -4,9 +4,10 @@
 
 bool CKomisApp::OnInit() 
 {
+    wxLocale *locale = new wxLocale( wxLANGUAGE_POLISH );
     CKomisFrame *komisFrame = new CKomisFrame( nullptr );
     komisFrame->Show();
-    komisFrame->Move( wxPoint( -1, 0 ) );
+    komisFrame->Move( wxPoint( -1, 100 ) );
 
     return true;
 }
