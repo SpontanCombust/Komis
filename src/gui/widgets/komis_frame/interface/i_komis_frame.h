@@ -1,4 +1,4 @@
-﻿///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 // C++ code generated with wxFormBuilder (version Oct 26 2018)
 // http://www.wxformbuilder.org/
 //
@@ -47,11 +47,16 @@ class IKomisFrame : public wxFrame
 		wxPanel* m_notebook_pageGeneral_panel;
 		wxPanel* m_notebook_pageVehicles;
 		wxPanel* m_notebook_pageVehicles_panel;
+		wxPanel* m_notebook_pageSearch;
+		wxButton* m_button3;
+		wxPanel* m_notebook_pageSearch_panel
+		;
 
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnClose( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnDisplayAbout( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnAddVehicleButtonClicked( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnSearchVehicleButtonClicked( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
