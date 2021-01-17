@@ -2,6 +2,7 @@
 #define __VEHICLE_BASIC_DATA_H__
 
 #include <string>
+#include <vector>
 
 enum class EVehicleType
 {
@@ -11,6 +12,9 @@ enum class EVehicleType
     VAN,
     TRUCK
 };
+
+std::string vehicleTypeToStringPolish( EVehicleType vehicleType );
+const std::vector< EVehicleType > getPossibleVehicleTypes();
 
 struct SVehicleBasicData
 {

@@ -2,6 +2,7 @@
 #define __VEHICLE_TECHNICAL_DATA_H__
 
 #include <string>
+#include <vector>
 
 enum class EVehicleFuel
 {
@@ -11,27 +12,51 @@ enum class EVehicleFuel
     ELECTRICITY
 };
 
+std::string vehicleFuelToStringPolish( EVehicleFuel vehicleFuel );
+const std::vector< EVehicleFuel > getPossibleVehicleFuels();
+
+
 enum class EVehicleTransmission
 {
     MANUAL,
     AUTOMATIC
 };
 
-enum class EWheelDrive
+std::string vehicleTransmissionToStringPolish( EVehicleTransmission vehicleTransmission );
+const std::vector< EVehicleTransmission > getPossibleVehicleTransmissions();
+
+
+enum class EVehicleWheelDrive
 {
     FRONT,
     REAR,
     ALL
 };
 
+std::string vehicleWheelDriveToStringPolish( EVehicleWheelDrive wheelDrive );
+const std::vector< EVehicleWheelDrive > getPossibleVehicleWheelDrives();
+
+
+enum class EVehicleDoorQuantity
+{
+    NONE,
+    THREE,
+    FIVE,
+    OTHER
+};
+
+std::string vehicleDoorQuantityToStringPolish( EVehicleDoorQuantity doorQuantity );
+const std::vector< EVehicleDoorQuantity > getPossibleVehicleDoorQuantities();
+
+
 struct SVehicleTechnicalData
 {
     EVehicleFuel fuelType;
     EVehicleTransmission transmissionType;
-    EWheelDrive wheelDriveType;
+    EVehicleWheelDrive wheelDriveType;
     unsigned int engineHorsepower;
     unsigned int engineCapacityL;
-    std::string doorQuantity;
+    EVehicleDoorQuantity doorQuantity;
 };
 
 #endif // __VEHICLE_TECHNICAL_DATA_H__

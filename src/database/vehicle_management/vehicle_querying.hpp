@@ -15,8 +15,8 @@ VehicleComparator getVehicleFuelTypeEqualComparator( EVehicleFuel fuelType );
 VehicleComparator getVehicleTransmissionTypeEqualComparator( EVehicleTransmission transmissionType );
 VehicleComparator getVehicleEngineHorsePowerRangeComparator( unsigned int engineHorsepowerMin, unsigned int engineHorsepowerMax );
 VehicleComparator getVehicleEngineCapacityRangeComparator( unsigned int engineCapacityMin, unsigned int engineCapacityMax );
-VehicleComparator getVehicleDoorQuantityEqualComparator( unsigned int doorQuantity );
-VehicleComparator getVehicleWheelDriveTypeEqualComparator( EWheelDrive wheelDriveType );
+VehicleComparator getVehicleDoorQuantityEqualComparator( EVehicleDoorQuantity doorQuantity );
+VehicleComparator getVehicleWheelDriveTypeEqualComparator( EVehicleWheelDrive wheelDriveType );
 
 VehicleComparator getVehiclePriceRangeComparator( float priceMin, float priceMax );
 VehicleComparator getVehicleMileageRangeComparator( unsigned int mileageMin, unsigned int mileageMax );
