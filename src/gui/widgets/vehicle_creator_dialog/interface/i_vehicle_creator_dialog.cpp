@@ -26,9 +26,8 @@ IVehicleCreatorDialog::IVehicleCreatorDialog( wxWindow* parent, wxWindowID id, c
 	m_staticText_vehicleType->Wrap( -1 );
 	fgSizer1->Add( m_staticText_vehicleType, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
-	wxString m_choice_vehicleTypeChoices[] = { _("Samochód osobowy"), _("Motocykl"), _("SUV"), _("VAN"), _("Ciężarówka"), wxEmptyString };
-	int m_choice_vehicleTypeNChoices = sizeof( m_choice_vehicleTypeChoices ) / sizeof( wxString );
-	m_choice_vehicleType = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 280,-1 ), m_choice_vehicleTypeNChoices, m_choice_vehicleTypeChoices, 0 );
+	wxArrayString m_choice_vehicleTypeChoices;
+	m_choice_vehicleType = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 280,-1 ), m_choice_vehicleTypeChoices, 0 );
 	m_choice_vehicleType->SetSelection( 0 );
 	fgSizer1->Add( m_choice_vehicleType, 0, wxALL, 5 );
 
@@ -56,9 +55,8 @@ IVehicleCreatorDialog::IVehicleCreatorDialog( wxWindow* parent, wxWindowID id, c
 	m_staticText_fuelType->Wrap( -1 );
 	fgSizer1->Add( m_staticText_fuelType, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
-	wxString m_choice_fuelTypeChoices[] = { _("Benzyna"), _("Diesel"), _("LPG"), _("Elektryk") };
-	int m_choice_fuelTypeNChoices = sizeof( m_choice_fuelTypeChoices ) / sizeof( wxString );
-	m_choice_fuelType = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice_fuelTypeNChoices, m_choice_fuelTypeChoices, 0 );
+	wxArrayString m_choice_fuelTypeChoices;
+	m_choice_fuelType = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice_fuelTypeChoices, 0 );
 	m_choice_fuelType->SetSelection( 0 );
 	fgSizer1->Add( m_choice_fuelType, 0, wxALL|wxEXPAND, 5 );
 
@@ -66,9 +64,8 @@ IVehicleCreatorDialog::IVehicleCreatorDialog( wxWindow* parent, wxWindowID id, c
 	m_staticText_transmission->Wrap( -1 );
 	fgSizer1->Add( m_staticText_transmission, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
-	wxString m_choice_transmissionChoices[] = { _("Manualna"), _("Automatyczna") };
-	int m_choice_transmissionNChoices = sizeof( m_choice_transmissionChoices ) / sizeof( wxString );
-	m_choice_transmission = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), m_choice_transmissionNChoices, m_choice_transmissionChoices, 0 );
+	wxArrayString m_choice_transmissionChoices;
+	m_choice_transmission = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), m_choice_transmissionChoices, 0 );
 	m_choice_transmission->SetSelection( 0 );
 	fgSizer1->Add( m_choice_transmission, 0, wxALL|wxEXPAND, 5 );
 
@@ -76,9 +73,8 @@ IVehicleCreatorDialog::IVehicleCreatorDialog( wxWindow* parent, wxWindowID id, c
 	m_staticText_wheelDrive->Wrap( -1 );
 	fgSizer1->Add( m_staticText_wheelDrive, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
-	wxString m_choice_wheelDriveChoices[] = { _("Na przednie koła"), _("Na tylnie koła"), _("4x4") };
-	int m_choice_wheelDriveNChoices = sizeof( m_choice_wheelDriveChoices ) / sizeof( wxString );
-	m_choice_wheelDrive = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), m_choice_wheelDriveNChoices, m_choice_wheelDriveChoices, 0 );
+	wxArrayString m_choice_wheelDriveChoices;
+	m_choice_wheelDrive = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), m_choice_wheelDriveChoices, 0 );
 	m_choice_wheelDrive->SetSelection( 1 );
 	fgSizer1->Add( m_choice_wheelDrive, 0, wxALL|wxEXPAND, 5 );
 
@@ -100,9 +96,8 @@ IVehicleCreatorDialog::IVehicleCreatorDialog( wxWindow* parent, wxWindowID id, c
 	m_staticText_doorQuantity->Wrap( -1 );
 	fgSizer1->Add( m_staticText_doorQuantity, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
-	wxString m_choice_doorQuantityChoices[] = { _("3"), _("5"), _("brak") };
-	int m_choice_doorQuantityNChoices = sizeof( m_choice_doorQuantityChoices ) / sizeof( wxString );
-	m_choice_doorQuantity = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), m_choice_doorQuantityNChoices, m_choice_doorQuantityChoices, 0 );
+	wxArrayString m_choice_doorQuantityChoices;
+	m_choice_doorQuantity = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), m_choice_doorQuantityChoices, 0 );
 	m_choice_doorQuantity->SetSelection( 0 );
 	fgSizer1->Add( m_choice_doorQuantity, 0, wxALL|wxEXPAND, 5 );
 
@@ -150,14 +145,20 @@ IVehicleCreatorDialog::IVehicleCreatorDialog( wxWindow* parent, wxWindowID id, c
 
 	bSizer1->Add( fgSizer1, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
 
-
-	bSizer1->Add( 0, 20, 0, wxEXPAND, 5 );
-
-	m_button_submitVehicle = new wxButton( this, wxID_ANY, _("Dodaj"), wxDefaultPosition, wxSize( 300,-1 ), 0 );
-	bSizer1->Add( m_button_submitVehicle, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5 );
+	wxBoxSizer* bSizer2;
+	bSizer2 = new wxBoxSizer( wxHORIZONTAL );
 
 
-	bSizer1->Add( 0, 20, 0, wxEXPAND, 5 );
+	bSizer2->Add( 0, 20, 1, wxEXPAND, 5 );
+
+	m_button_submitVehicle = new wxButton( this, wxID_ANY, _("Dodaj"), wxDefaultPosition, wxSize( 150,-1 ), 0 );
+	bSizer2->Add( m_button_submitVehicle, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_button_cancel = new wxButton( this, wxID_ANY, _("Anuluj"), wxDefaultPosition, wxSize( 150,-1 ), 0 );
+	bSizer2->Add( m_button_cancel, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer1->Add( bSizer2, 1, wxEXPAND, 5 );
 
 
 	this->SetSizer( bSizer1 );
@@ -167,11 +168,13 @@ IVehicleCreatorDialog::IVehicleCreatorDialog( wxWindow* parent, wxWindowID id, c
 
 	// Connect Events
 	m_button_submitVehicle->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleCreatorDialog::OnSubmitVehicleButtonClicked ), NULL, this );
+	m_button_cancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleCreatorDialog::OnCancel ), NULL, this );
 }
 
 IVehicleCreatorDialog::~IVehicleCreatorDialog()
 {
 	// Disconnect Events
 	m_button_submitVehicle->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleCreatorDialog::OnSubmitVehicleButtonClicked ), NULL, this );
+	m_button_cancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleCreatorDialog::OnCancel ), NULL, this );
 
 }

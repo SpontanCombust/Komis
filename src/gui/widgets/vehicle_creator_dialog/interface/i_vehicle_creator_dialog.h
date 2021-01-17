@@ -66,9 +66,11 @@ class IVehicleCreatorDialog : public wxDialog
 		wxStaticText* m_staticText_additInfo;
 		wxTextCtrl* m_textCtrl_additInfo;
 		wxButton* m_button_submitVehicle;
+		wxButton* m_button_cancel;
 
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnSubmitVehicleButtonClicked( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnCancel( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
