@@ -22,3 +22,10 @@ void CKomisFrame::OnAddVehicleButtonClicked(wxCommandEvent& event)
     CVehicleCreatorDialog *vehicleCreatorDialog = new CVehicleCreatorDialog( m_vehicleManager, this );
     vehicleCreatorDialog->Show();
 }
+
+void CKomisFrame::OnSearchVehicleButtonClicked(wxCommandEvent& event) 
+{
+    SVehicleSearchDialog *vehiclesearchdialog = new SVehicleSearchDialog( m_vehicleManager, this );
+    vehiclesearchdialog->Show();
+}
+
