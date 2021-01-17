@@ -1,4 +1,4 @@
-﻿///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 // C++ code generated with wxFormBuilder (version Oct 26 2018)
 // http://www.wxformbuilder.org/
 //
@@ -65,6 +65,23 @@ IKomisFrame::IKomisFrame( wxWindow* parent, wxWindowID id, const wxString& title
 	m_notebook_pageVehicles->Layout();
 	bSizer6->Fit( m_notebook_pageVehicles );
 	m_notebook->AddPage( m_notebook_pageVehicles, _("Pojazdy"), false );
+	m_notebook_pageSearch = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	wxBoxSizer* bSizer4;
+	bSizer4 = new wxBoxSizer( wxVERTICAL );
+
+	m_button3 = new wxButton( m_notebook_pageSearch, wxID_ANY, _("Wyszukaj"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer4->Add( m_button3, 0, wxALL|wxEXPAND, 5 );
+
+	m_notebook_pageSearch_panel
+	= new wxPanel( m_notebook_pageSearch, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	bSizer4->Add( m_notebook_pageSearch_panel
+	, 1, wxEXPAND | wxALL, 5 );
+
+
+	m_notebook_pageSearch->SetSizer( bSizer4 );
+	m_notebook_pageSearch->Layout();
+	bSizer4->Fit( m_notebook_pageSearch );
+	m_notebook->AddPage( m_notebook_pageSearch, _("Wyszukaj"), false );
 
 	bSizer2->Add( m_notebook, 1, wxEXPAND | wxALL, 5 );
 
@@ -78,11 +95,13 @@ IKomisFrame::IKomisFrame( wxWindow* parent, wxWindowID id, const wxString& title
 	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnClose ), this, m_menu_file_menuItem_close->GetId());
 	m_menu_help->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnDisplayAbout ), this, m_menu_help_menuItem_displayDescription->GetId());
 	m_button1->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IKomisFrame::OnAddVehicleButtonClicked ), NULL, this );
+	m_button3->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IKomisFrame::OnSearchVehicleButtonClicked ), NULL, this );
 }
 
 IKomisFrame::~IKomisFrame()
 {
 	// Disconnect Events
 	m_button1->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IKomisFrame::OnAddVehicleButtonClicked ), NULL, this );
+	m_button3->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IKomisFrame::OnSearchVehicleButtonClicked ), NULL, this );
 
 }
