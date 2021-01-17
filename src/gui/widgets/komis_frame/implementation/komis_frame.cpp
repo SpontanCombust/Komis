@@ -4,12 +4,12 @@
 
 CKomisFrame::CKomisFrame( wxWindow *parent ) : IKomisFrame( parent ) 
 {
-
+    m_vehicleManager = new CVehicleManager();
 }
 
 CKomisFrame::~CKomisFrame() 
 {
-
+    delete m_vehicleManager;
 }
 
 void CKomisFrame::OnClose(wxCommandEvent& event) 
@@ -19,6 +19,6 @@ void CKomisFrame::OnClose(wxCommandEvent& event)
 
 void CKomisFrame::OnAddVehicleButtonClicked(wxCommandEvent& event) 
 {
-    CVehicleCreatorDialog *vehicleCreatorDialog = new CVehicleCreatorDialog( nullptr, this );
+    CVehicleCreatorDialog *vehicleCreatorDialog = new CVehicleCreatorDialog( m_vehicleManager, this );
     vehicleCreatorDialog->Show();
 }
