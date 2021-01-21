@@ -11,7 +11,7 @@
 
 IKomisFrame::IKomisFrame( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 700,600 ), wxDefaultSize );
 
 	m_menubar = new wxMenuBar( 0 );
 	m_menu_file = new wxMenu();
@@ -57,7 +57,7 @@ IKomisFrame::IKomisFrame( wxWindow* parent, wxWindowID id, const wxString& title
 	wxBoxSizer* bSizer6;
 	bSizer6 = new wxBoxSizer( wxVERTICAL );
 
-	m_notebook_pageVehicles_panel = new wxPanel( m_notebook_pageVehicles, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	m_notebook_pageVehicles_panel = new CScrolledVehicleListPanel( m_notebook_pageVehicles, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	bSizer6->Add( m_notebook_pageVehicles_panel, 1, wxEXPAND | wxALL, 5 );
 
 
