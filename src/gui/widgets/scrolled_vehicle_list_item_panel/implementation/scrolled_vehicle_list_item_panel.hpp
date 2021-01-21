@@ -6,9 +6,16 @@
 
 class CScrolledVehicleListItemPanel : public IScrolledVehicleListItemPanel
 {
+protected:
+	bool m_isVehicleDeleted;
+
 public:
 	CScrolledVehicleListItemPanel( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxTAB_TRAVERSAL, const wxString& name = wxEmptyString );
 	~CScrolledVehicleListItemPanel();
+
+	void OnViewVehicleButtonClicked( wxCommandEvent& event ) override;
+	void OnEditVehicleButtonClicked( wxCommandEvent& event ) override;
+	void OnDeleteVehicleButtonClicked( wxCommandEvent& event ) override;
 
 	void setBrandAndModel( std::string brand, std::string model );
 	void setState( std::string state );
@@ -16,6 +23,13 @@ public:
 	void setEngineHorsepower( unsigned int horsepower );
 	void setEngineCapacity( unsigned int capacity );
 	void setPrice( float price );
+
+	bool getIsVehicleDeleted();
+
+	void clearEditableStaticTexts();
+	void clearAllStaticTexts();
+	void setNonEditableStaticTexts();
+	void disableAllButtons();
 };
 
 #endif // __SCROLLED_VEHICLE_LIST_ITEM_PANEL_H__

@@ -11,8 +11,28 @@
 
 IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, long style, const wxString& name ) : wxPanel( parent, id, pos, size, style, name )
 {
+	this->SetMinSize( wxSize( -1,150 ) );
+
 	wxBoxSizer* bSizer8;
-	bSizer8 = new wxBoxSizer( wxVERTICAL );
+	bSizer8 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer101;
+	bSizer101 = new wxBoxSizer( wxVERTICAL );
+
+	m_button_viewVehicle = new wxButton( this, wxID_ANY, _("Pokaż"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer101->Add( m_button_viewVehicle, 0, wxALL, 5 );
+
+	m_button_editVehicle = new wxButton( this, wxID_ANY, _("Edytuj"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer101->Add( m_button_editVehicle, 0, wxALL, 5 );
+
+	m_button_deleteVehicle = new wxButton( this, wxID_ANY, _("Usuń"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer101->Add( m_button_deleteVehicle, 0, wxALL, 5 );
+
+
+	bSizer8->Add( bSizer101, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer91;
+	bSizer91 = new wxBoxSizer( wxVERTICAL );
 
 	wxBoxSizer* bSizer9;
 	bSizer9 = new wxBoxSizer( wxVERTICAL );
@@ -24,7 +44,7 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	bSizer9->Add( m_staticText_brandAndModel, 4, wxALIGN_CENTER_VERTICAL|wxEXPAND|wxTOP|wxRIGHT|wxLEFT, 10 );
 
 
-	bSizer8->Add( bSizer9, 3, wxEXPAND, 5 );
+	bSizer91->Add( bSizer9, 3, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer10;
 	bSizer10 = new wxBoxSizer( wxHORIZONTAL );
@@ -94,7 +114,7 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	bSizer10->Add( bSizer13, 1, wxRIGHT|wxLEFT|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
 
 
-	bSizer8->Add( bSizer10, 2, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer91->Add( bSizer10, 2, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 	wxBoxSizer* bSizer15;
 	bSizer15 = new wxBoxSizer( wxVERTICAL );
@@ -106,14 +126,27 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	bSizer15->Add( m_staticText_price, 1, wxALL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
 
 
-	bSizer8->Add( bSizer15, 4, wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
+	bSizer91->Add( bSizer15, 4, wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
+
+
+	bSizer8->Add( bSizer91, 1, wxEXPAND, 5 );
 
 
 	this->SetSizer( bSizer8 );
 	this->Layout();
 	bSizer8->Fit( this );
+
+	// Connect Events
+	m_button_viewVehicle->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IScrolledVehicleListItemPanel::OnViewVehicleButtonClicked ), NULL, this );
+	m_button_editVehicle->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IScrolledVehicleListItemPanel::OnEditVehicleButtonClicked ), NULL, this );
+	m_button_deleteVehicle->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IScrolledVehicleListItemPanel::OnDeleteVehicleButtonClicked ), NULL, this );
 }
 
 IScrolledVehicleListItemPanel::~IScrolledVehicleListItemPanel()
 {
+	// Disconnect Events
+	m_button_viewVehicle->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IScrolledVehicleListItemPanel::OnViewVehicleButtonClicked ), NULL, this );
+	m_button_editVehicle->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IScrolledVehicleListItemPanel::OnEditVehicleButtonClicked ), NULL, this );
+	m_button_deleteVehicle->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IScrolledVehicleListItemPanel::OnDeleteVehicleButtonClicked ), NULL, this );
+
 }

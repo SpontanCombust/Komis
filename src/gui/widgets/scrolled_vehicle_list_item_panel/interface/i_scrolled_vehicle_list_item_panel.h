@@ -11,12 +11,16 @@
 #include <wx/xrc/xmlres.h>
 #include <wx/intl.h>
 #include <wx/string.h>
-#include <wx/stattext.h>
+#include <wx/bitmap.h>
+#include <wx/image.h>
+#include <wx/icon.h>
 #include <wx/gdicmn.h>
+#include <wx/button.h>
 #include <wx/font.h>
 #include <wx/colour.h>
 #include <wx/settings.h>
 #include <wx/sizer.h>
+#include <wx/stattext.h>
 #include <wx/panel.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -30,6 +34,9 @@ class IScrolledVehicleListItemPanel : public wxPanel
 	private:
 
 	protected:
+		wxButton* m_button_viewVehicle;
+		wxButton* m_button_editVehicle;
+		wxButton* m_button_deleteVehicle;
 		wxStaticText* m_staticText_brandAndModel;
 		wxStaticText* m_staticText_stateLabel;
 		wxStaticText* m_staticText_state;
@@ -40,6 +47,12 @@ class IScrolledVehicleListItemPanel : public wxPanel
 		wxStaticText* m_staticText_engineCapacityLabel;
 		wxStaticText* m_staticText_engineCapacity;
 		wxStaticText* m_staticText_price;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnViewVehicleButtonClicked( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnEditVehicleButtonClicked( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnDeleteVehicleButtonClicked( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 
