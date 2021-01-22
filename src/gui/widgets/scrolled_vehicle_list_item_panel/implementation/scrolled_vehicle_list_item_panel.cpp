@@ -116,21 +116,21 @@ bool CScrolledVehicleListItemPanel::getShouldVehicleBeDeleted()
 
 void CScrolledVehicleListItemPanel::clearVehicleDataStaticTexts() 
 {
-    m_staticText_brandAndModel->SetLabelText( "" );
-    m_staticText_state->SetLabelText( "" );
-    m_staticText_mileage->SetLabelText( "" );
-    m_staticText_engineHorsepower->SetLabelText( "" );
-    m_staticText_engineCapacity->SetLabelText( "" );
-    m_staticText_price->SetLabelText( "" );
+    m_staticText_brandAndModel->SetLabelText( "                      " );
+    m_staticText_state->SetLabelText( "                      " );
+    m_staticText_mileage->SetLabelText( "                      " );
+    m_staticText_engineHorsepower->SetLabelText( "                      " );
+    m_staticText_engineCapacity->SetLabelText( "                      " );
+    m_staticText_price->SetLabelText( "                      " );
 }
 
 void CScrolledVehicleListItemPanel::clearAllStaticTexts() 
 {
     clearVehicleDataStaticTexts();
-    m_staticText_stateLabel->SetLabelText( "" );
-    m_staticText_mileageLabel->SetLabelText( "" );
-    m_staticText_engineCapacityLabel->SetLabelText( "" );
-    m_staticText_engineHorsepowerLabel->SetLabelText( "" );
+    m_staticText_stateLabel->SetLabelText( "           " );
+    m_staticText_mileageLabel->SetLabelText( "           " );
+    m_staticText_engineCapacityLabel->SetLabelText( "           " );
+    m_staticText_engineHorsepowerLabel->SetLabelText( "           " );
 }
 
 void CScrolledVehicleListItemPanel::resetLabelStaticTexts() 

@@ -60,6 +60,8 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 
 	m_staticText_stateLabel = new wxStaticText( this, wxID_ANY, _("Stan:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText_stateLabel->Wrap( -1 );
+	m_staticText_stateLabel->SetMinSize( wxSize( 35,-1 ) );
+
 	bSizer11->Add( m_staticText_stateLabel, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_staticText_state = new wxStaticText( this, wxID_ANY, _("stanTekst"), wxDefaultPosition, wxDefaultSize, wxST_ELLIPSIZE_END );
@@ -71,14 +73,13 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 
 	bSizer10->Add( bSizer11, 1, wxALIGN_CENTER_VERTICAL|wxRIGHT|wxEXPAND, 5 );
 
-
-	bSizer10->Add( 20, 0, 0, wxEXPAND, 5 );
-
 	wxBoxSizer* bSizer12;
 	bSizer12 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText_mileageLabel = new wxStaticText( this, wxID_ANY, _("Przebieg:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText_mileageLabel->Wrap( -1 );
+	m_staticText_mileageLabel->SetMinSize( wxSize( 65,-1 ) );
+
 	bSizer12->Add( m_staticText_mileageLabel, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_staticText_mileage = new wxStaticText( this, wxID_ANY, _("przebiegTekst"), wxDefaultPosition, wxDefaultSize, wxST_ELLIPSIZE_END );
@@ -90,14 +91,13 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 
 	bSizer10->Add( bSizer12, 1, wxALIGN_CENTER_VERTICAL|wxRIGHT|wxLEFT|wxEXPAND, 5 );
 
-
-	bSizer10->Add( 20, 0, 0, wxEXPAND, 5 );
-
 	wxBoxSizer* bSizer14;
 	bSizer14 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText_engineHorsepowerLabel = new wxStaticText( this, wxID_ANY, _("Moc silnika:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText_engineHorsepowerLabel->Wrap( -1 );
+	m_staticText_engineHorsepowerLabel->SetMinSize( wxSize( 80,-1 ) );
+
 	bSizer14->Add( m_staticText_engineHorsepowerLabel, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_staticText_engineHorsepower = new wxStaticText( this, wxID_ANY, _("mocTekst"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -109,14 +109,13 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 
 	bSizer10->Add( bSizer14, 1, wxEXPAND|wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
 
-
-	bSizer10->Add( 20, 0, 0, wxEXPAND, 5 );
-
 	wxBoxSizer* bSizer13;
 	bSizer13 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText_engineCapacityLabel = new wxStaticText( this, wxID_ANY, _("Pojemność silnika:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText_engineCapacityLabel->Wrap( -1 );
+	m_staticText_engineCapacityLabel->SetMinSize( wxSize( 130,-1 ) );
+
 	bSizer13->Add( m_staticText_engineCapacityLabel, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_staticText_engineCapacity = new wxStaticText( this, wxID_ANY, _("pojemnośćTekst"), wxDefaultPosition, wxDefaultSize, 0 );
