@@ -19,6 +19,9 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	wxBoxSizer* bSizer101;
 	bSizer101 = new wxBoxSizer( wxVERTICAL );
 
+
+	bSizer101->Add( 0, 0, 1, wxEXPAND, 5 );
+
 	m_button_viewVehicle = new wxButton( this, wxID_ANY, _("Pokaż"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer101->Add( m_button_viewVehicle, 0, wxALL, 5 );
 
@@ -27,6 +30,9 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 
 	m_button_deleteVehicle = new wxButton( this, wxID_ANY, _("Usuń"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer101->Add( m_button_deleteVehicle, 0, wxALL, 5 );
+
+
+	bSizer101->Add( 0, 0, 1, wxEXPAND, 5 );
 
 
 	bSizer8->Add( bSizer101, 0, wxEXPAND, 5 );

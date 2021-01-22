@@ -3,11 +3,13 @@
 
 
 #include "../interface/i_scrolled_vehicle_list_item_panel.h"
+#include "database/vehicle.hpp"
 
 class CScrolledVehicleListItemPanel : public IScrolledVehicleListItemPanel
 {
 protected:
-	bool m_isVehicleDeleted;
+	bool m_shouldVehicleBeDeleted;
+	SVehicle *m_representedVehicleHandle; 
 
 public:
 	CScrolledVehicleListItemPanel( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxTAB_TRAVERSAL, const wxString& name = wxEmptyString );
@@ -17,19 +19,30 @@ public:
 	void OnEditVehicleButtonClicked( wxCommandEvent& event ) override;
 	void OnDeleteVehicleButtonClicked( wxCommandEvent& event ) override;
 
-	void setBrandAndModel( std::string brand, std::string model );
-	void setState( std::string state );
-	void setMileage( unsigned int mileage );
-	void setEngineHorsepower( unsigned int horsepower );
-	void setEngineCapacity( unsigned int capacity );
-	void setPrice( float price );
+	void setRepresentedVehicle( SVehicle *vehicleHandle );
+	SVehicle *getRepresentedVehicle();
 
-	bool getIsVehicleDeleted();
+	void setShouldVehicleBeDeleted( bool shouldBeDeleted );
+	bool getShouldVehicleBeDeleted();
 
-	void clearEditableStaticTexts();
+	void clearVehicleDataStaticTexts();
+	void setVehicleDataStaticTexts();
+
 	void clearAllStaticTexts();
-	void setNonEditableStaticTexts();
+	void resetLabelStaticTexts();
+	
 	void disableAllButtons();
+	void enableAllButtons();
+
+protected:
+	void setBrandAndModelText( std::string brand, std::string model );
+	void setStateText( std::string state );
+	void setMileage( unsigned int mileage );
+	void setEngineHorsepowerText( unsigned int horsepower );
+	void setEngineCapacityText( unsigned int capacity );
+	void setPriceText( float price );
+
+	void setVehicleDeletedText();
 };
 
 #endif // __SCROLLED_VEHICLE_LIST_ITEM_PANEL_H__
