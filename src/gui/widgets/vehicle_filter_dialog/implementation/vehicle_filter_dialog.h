@@ -1,16 +1,13 @@
 ﻿#ifndef __vehicle_filter_dialog__
 #define __vehicle_filter_dialog__
 
-
 #include "../interface/i_vehicle_filter_dialog.h"
-#include "database/vehicle_management/vehicle_manager.hpp"
-#include "database/vehicle_data/vehicle_filters_data.hpp"
+#include "database/vehicle_management/vehicle_querying.hpp"
 
 class FVehicleFilterDialog : public IVehicleFilterDialog
 {
 private:
-	CVehicleManager* m_databaseHandle;
-	VehicleFilters m_vehicleFilter;
+	std::vector<VehicleComparator>* m_vehicleComparator;
 protected:
 	// Handlers for IVehicleFilterDialog events.
 	void checkBox_vehicleTypeChecked(wxCommandEvent& event);
@@ -33,10 +30,7 @@ protected:
 	virtual void OnSearchSubmitVehicleButtonClicked(wxCommandEvent& event) override;
 	void OnCancel(wxCommandEvent& event);
 public:
-	FVehicleFilterDialog(CVehicleManager* database, wxWindow* parent);
-	VehicleFilters GetVehicleFilters() {
-		return m_vehicleFilter;
-	};
+	FVehicleFilterDialog(wxWindow* parent);
 private:
 	void populateVehicleTypeChoice();
 	void populateFuelChoice();

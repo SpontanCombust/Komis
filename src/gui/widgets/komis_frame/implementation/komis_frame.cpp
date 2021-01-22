@@ -26,6 +26,6 @@ void CKomisFrame::OnAddVehicleButtonClicked(wxCommandEvent& event)
 
 void CKomisFrame::OnSearchVehicleButtonClicked(wxCommandEvent& event)
 {
-    FVehicleFilterDialog* vehiclefilterdialog = new FVehicleFilterDialog(m_vehicleManager, this);
+    FVehicleFilterDialog* vehiclefilterdialog = new FVehicleFilterDialog(this);
     vehiclefilterdialog->Show();
 }
