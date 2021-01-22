@@ -540,7 +540,7 @@
                                             <property name="resize">Resizable</property>
                                             <property name="show">1</property>
                                             <property name="size"></property>
-                                            <property name="subclass">CScrolledVehicleListPanel; gui/widgets/scrolled_vehicle_list_panel/implementation/scrolled_vehicle_list_panel.hpp; ...</property>
+                                            <property name="subclass">CVehicleBrowsePanel; gui/widgets/vehicle_browse_panel/implementation/vehicle_browse_panel.hpp; ...</property>
                                             <property name="toolbar_pane">0</property>
                                             <property name="tooltip"></property>
                                             <property name="window_extra_style"></property>

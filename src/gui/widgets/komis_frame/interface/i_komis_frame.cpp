@@ -57,7 +57,7 @@ IKomisFrame::IKomisFrame( wxWindow* parent, wxWindowID id, const wxString& title
 	wxBoxSizer* bSizer6;
 	bSizer6 = new wxBoxSizer( wxVERTICAL );
 
-	m_notebook_pageVehicles_panel = new CScrolledVehicleListPanel( m_notebook_pageVehicles, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	m_notebook_pageVehicles_panel = new CVehicleBrowsePanel( m_notebook_pageVehicles, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	bSizer6->Add( m_notebook_pageVehicles_panel, 1, wxEXPAND | wxALL, 5 );
 
 

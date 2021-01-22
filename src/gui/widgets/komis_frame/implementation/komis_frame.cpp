@@ -5,6 +5,9 @@
 CKomisFrame::CKomisFrame( wxWindow *parent ) : IKomisFrame( parent ) 
 {
     m_vehicleManager = new CVehicleManager();
+
+    m_notebook_pageVehicles_panel->setDatabaseHandle( m_vehicleManager );
+    m_notebook_pageVehicles_panel->refreshListItems();
 }
 
 CKomisFrame::~CKomisFrame() 

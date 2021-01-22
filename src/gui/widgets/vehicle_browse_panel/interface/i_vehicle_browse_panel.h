@@ -10,7 +10,7 @@
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
 #include <wx/intl.h>
-#include "gui/widgets/scrolled_vehicle_list_item_panel/implementation/scrolled_vehicle_list_item_panel.hpp"
+#include "gui/widgets/scrolled_vehicle_list_window/implementation/scrolled_vehicle_list_window.hpp"
 #include <wx/string.h>
 #include <wx/bitmap.h>
 #include <wx/image.h>
@@ -21,33 +21,23 @@
 #include <wx/colour.h>
 #include <wx/settings.h>
 #include <wx/sizer.h>
-#include <wx/panel.h>
 #include <wx/scrolwin.h>
+#include <wx/panel.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class IScrolledVehicleListPanel
+/// Class IVehicleBrowsePanel
 ///////////////////////////////////////////////////////////////////////////////
-class IScrolledVehicleListPanel : public wxPanel
+class IVehicleBrowsePanel : public wxPanel
 {
 	private:
 
 	protected:
 		wxButton* m_button_refresh;
 		wxButton* m_button_setFilters;
-		wxScrolledWindow* m_scrolledWindow;
-		CScrolledVehicleListItemPanel* m_panel_vehicleItem01;
-		CScrolledVehicleListItemPanel* m_panel_vehicleItem02;
-		CScrolledVehicleListItemPanel* m_panel_vehicleItem03;
-		CScrolledVehicleListItemPanel* m_panel_vehicleItem04;
-		CScrolledVehicleListItemPanel* m_panel_vehicleItem05;
-		CScrolledVehicleListItemPanel* m_panel_vehicleItem06;
-		CScrolledVehicleListItemPanel* m_panel_vehicleItem07;
-		CScrolledVehicleListItemPanel* m_panel_vehicleItem08;
-		CScrolledVehicleListItemPanel* m_panel_vehicleItem09;
-		CScrolledVehicleListItemPanel* m_panel_vehicleItem10;
+		CScrolledVehicleListWindow* m_scrolledWindow;
 		wxButton* m_button_prevPage;
 		wxButton* m_button_nextPage;
 
@@ -60,8 +50,8 @@ class IScrolledVehicleListPanel : public wxPanel
 
 	public:
 
-		IScrolledVehicleListPanel( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxTAB_TRAVERSAL, const wxString& name = wxEmptyString );
-		~IScrolledVehicleListPanel();
+		IVehicleBrowsePanel( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxTAB_TRAVERSAL, const wxString& name = wxEmptyString );
+		~IVehicleBrowsePanel();
 
 };
 

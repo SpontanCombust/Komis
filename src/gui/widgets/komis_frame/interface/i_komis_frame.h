@@ -10,7 +10,7 @@
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
 #include <wx/intl.h>
-#include "gui/widgets/scrolled_vehicle_list_panel/implementation/scrolled_vehicle_list_panel.hpp"
+#include "gui/widgets/vehicle_browse_panel/implementation/vehicle_browse_panel.hpp"
 #include <wx/string.h>
 #include <wx/bitmap.h>
 #include <wx/image.h>
@@ -47,7 +47,7 @@ class IKomisFrame : public wxFrame
 		wxButton* m_button1;
 		wxPanel* m_notebook_pageGeneral_panel;
 		wxPanel* m_notebook_pageVehicles;
-		CScrolledVehicleListPanel* m_notebook_pageVehicles_panel;
+		CVehicleBrowsePanel* m_notebook_pageVehicles_panel;
 
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnClose( wxCommandEvent& event ) { event.Skip(); }
