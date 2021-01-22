@@ -1,4 +1,4 @@
-#include "vehicle_technical_data.hpp"
+﻿#include "vehicle_technical_data.hpp"
 
 std::string vehicleFuelToStringPolish( EVehicleFuel vehicleFuel ) 
 {

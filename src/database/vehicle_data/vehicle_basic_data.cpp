@@ -1,4 +1,4 @@
-#include "vehicle_basic_data.hpp"
+﻿#include "vehicle_basic_data.hpp"
 
 std::string vehicleTypeToStringPolish( EVehicleType vehicleType ) 
 {
