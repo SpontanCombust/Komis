@@ -27,6 +27,8 @@ public:
     uint32_t addVehicle( SVehicleBasicData basicData, SVehicleTechnicalData technicalData, SVehicleSpecimenData specimenData );
     // returns a vehicle with that id, throws an exception when doesn't find one
     SVehicle& getVehicleByID( uint32_t id );
+    // returns a vehicle handle (pointer) with that id, returns null
+    SVehicle* getVehicleHandleByID( uint32_t id );
     // removes a vehicle with that id, throws an exception when doesn't find one
     void removeVehicleByID( uint32_t id );
 
