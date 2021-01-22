@@ -142,6 +142,8 @@ void CVehicleBrowsePanel::refreshListItems()
     resetDatabaseCache();
     setupListItems();
     validatePageTurnButtons();
+
+    m_scrolledWindow->Layout();
 }
 
 
