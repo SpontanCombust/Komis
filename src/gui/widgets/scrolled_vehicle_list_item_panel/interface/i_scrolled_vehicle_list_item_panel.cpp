@@ -71,6 +71,9 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 
 	bSizer10->Add( bSizer11, 1, wxALIGN_CENTER_VERTICAL|wxRIGHT|wxEXPAND, 5 );
 
+
+	bSizer10->Add( 20, 0, 0, wxEXPAND, 5 );
+
 	wxBoxSizer* bSizer12;
 	bSizer12 = new wxBoxSizer( wxHORIZONTAL );
 
@@ -87,6 +90,9 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 
 	bSizer10->Add( bSizer12, 1, wxALIGN_CENTER_VERTICAL|wxRIGHT|wxLEFT|wxEXPAND, 5 );
 
+
+	bSizer10->Add( 20, 0, 0, wxEXPAND, 5 );
+
 	wxBoxSizer* bSizer14;
 	bSizer14 = new wxBoxSizer( wxHORIZONTAL );
 
@@ -102,6 +108,9 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 
 
 	bSizer10->Add( bSizer14, 1, wxEXPAND|wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer10->Add( 20, 0, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer13;
 	bSizer13 = new wxBoxSizer( wxHORIZONTAL );
@@ -120,7 +129,7 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	bSizer10->Add( bSizer13, 1, wxRIGHT|wxLEFT|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
 
 
-	bSizer91->Add( bSizer10, 2, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer91->Add( bSizer10, 2, 0, 5 );
 
 	wxBoxSizer* bSizer15;
 	bSizer15 = new wxBoxSizer( wxVERTICAL );
