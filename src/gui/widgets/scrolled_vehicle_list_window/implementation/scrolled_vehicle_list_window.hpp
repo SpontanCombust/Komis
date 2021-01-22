@@ -13,7 +13,7 @@ protected:
     CScrolledVehicleListItemPanel * m_vehiclePanelItems[VEHICLE_ITEM_COUNT];
 
 public:
-    CScrolledVehicleListWindow( wxWindow *parent, wxWindowID winid = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxScrolledWindowStyle, const wxString& name = wxASCII_STR(wxPanelNameStr) );
+    CScrolledVehicleListWindow( wxWindow *parent, wxWindowID winid = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxScrolledWindowStyle );
 
     int getVehicleItemCount();
     CScrolledVehicleListItemPanel *getVehiclePanelByIdx( int idx );

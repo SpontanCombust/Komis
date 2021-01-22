@@ -2,8 +2,8 @@
 
 #include <stdexcept>
 
-CScrolledVehicleListWindow::CScrolledVehicleListWindow(wxWindow *parent, wxWindowID winid, const wxPoint& pos, const wxSize& size, long style, const wxString& name )
-: wxScrolledWindow( parent, winid, pos, size, style, name ) 
+CScrolledVehicleListWindow::CScrolledVehicleListWindow(wxWindow *parent, wxWindowID winid, const wxPoint& pos, const wxSize& size, long style )
+: wxScrolledWindow( parent, winid, pos, size, style ) 
 {
     wxBoxSizer* bSizer2;
 	bSizer2 = new wxBoxSizer( wxVERTICAL );
