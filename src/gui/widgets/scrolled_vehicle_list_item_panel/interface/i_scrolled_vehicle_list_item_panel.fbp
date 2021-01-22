@@ -398,7 +398,7 @@
                                     <property name="border">5</property>
                                     <property name="flag">wxALIGN_CENTER_VERTICAL|wxRIGHT|wxEXPAND</property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer11</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -442,7 +442,7 @@
                                                 <property name="maximum_size"></property>
                                                 <property name="min_size"></property>
                                                 <property name="minimize_button">0</property>
-                                                <property name="minimum_size"></property>
+                                                <property name="minimum_size">35,-1</property>
                                                 <property name="moveable">1</property>
                                                 <property name="name">m_staticText_stateLabel</property>
                                                 <property name="pane_border">1</property>
@@ -529,19 +529,9 @@
                                 </object>
                                 <object class="sizeritem" expanded="1">
                                     <property name="border">5</property>
-                                    <property name="flag">wxEXPAND</property>
-                                    <property name="proportion">0</property>
-                                    <object class="spacer" expanded="1">
-                                        <property name="height">0</property>
-                                        <property name="permission">protected</property>
-                                        <property name="width">20</property>
-                                    </object>
-                                </object>
-                                <object class="sizeritem" expanded="0">
-                                    <property name="border">5</property>
                                     <property name="flag">wxALIGN_CENTER_VERTICAL|wxRIGHT|wxLEFT|wxEXPAND</property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer12</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -585,7 +575,7 @@
                                                 <property name="maximum_size"></property>
                                                 <property name="min_size"></property>
                                                 <property name="minimize_button">0</property>
-                                                <property name="minimum_size"></property>
+                                                <property name="minimum_size">65,-1</property>
                                                 <property name="moveable">1</property>
                                                 <property name="name">m_staticText_mileageLabel</property>
                                                 <property name="pane_border">1</property>
@@ -672,19 +662,9 @@
                                 </object>
                                 <object class="sizeritem" expanded="1">
                                     <property name="border">5</property>
-                                    <property name="flag">wxEXPAND</property>
-                                    <property name="proportion">0</property>
-                                    <object class="spacer" expanded="1">
-                                        <property name="height">0</property>
-                                        <property name="permission">protected</property>
-                                        <property name="width">20</property>
-                                    </object>
-                                </object>
-                                <object class="sizeritem" expanded="0">
-                                    <property name="border">5</property>
                                     <property name="flag">wxEXPAND|wxLEFT|wxALIGN_CENTER_VERTICAL</property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer14</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -728,7 +708,7 @@
                                                 <property name="maximum_size"></property>
                                                 <property name="min_size"></property>
                                                 <property name="minimize_button">0</property>
-                                                <property name="minimum_size"></property>
+                                                <property name="minimum_size">80,-1</property>
                                                 <property name="moveable">1</property>
                                                 <property name="name">m_staticText_engineHorsepowerLabel</property>
                                                 <property name="pane_border">1</property>
@@ -815,19 +795,9 @@
                                 </object>
                                 <object class="sizeritem" expanded="1">
                                     <property name="border">5</property>
-                                    <property name="flag">wxEXPAND</property>
-                                    <property name="proportion">0</property>
-                                    <object class="spacer" expanded="1">
-                                        <property name="height">0</property>
-                                        <property name="permission">protected</property>
-                                        <property name="width">20</property>
-                                    </object>
-                                </object>
-                                <object class="sizeritem" expanded="0">
-                                    <property name="border">5</property>
                                     <property name="flag">wxRIGHT|wxLEFT|wxALIGN_CENTER_VERTICAL|wxEXPAND</property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer13</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -871,7 +841,7 @@
                                                 <property name="maximum_size"></property>
                                                 <property name="min_size"></property>
                                                 <property name="minimize_button">0</property>
-                                                <property name="minimum_size"></property>
+                                                <property name="minimum_size">130,-1</property>
                                                 <property name="moveable">1</property>
                                                 <property name="name">m_staticText_engineCapacityLabel</property>
                                                 <property name="pane_border">1</property>
@@ -958,11 +928,11 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxALIGN_CENTER_HORIZONTAL|wxEXPAND</property>
                             <property name="proportion">4</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer15</property>
                                 <property name="orient">wxVERTICAL</property>
