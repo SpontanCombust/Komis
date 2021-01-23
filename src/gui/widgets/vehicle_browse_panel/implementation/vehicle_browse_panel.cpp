@@ -1,5 +1,7 @@
 ﻿#include "vehicle_browse_panel.hpp"
 
+#include "gui/widgets/vehicle_filter_dialog/implementation/vehicle_filter_dialog.h"
+
 #include <wx/msgdlg.h>
 
 CVehicleBrowsePanel::CVehicleBrowsePanel( wxWindow* parent )
@@ -86,52 +88,47 @@ void CVehicleBrowsePanel::validatePageTurnButtons()
     
 }
 
-void CVehicleBrowsePanel::setupListItems() 
+void CVehicleBrowsePanel::resetListItems() 
 {
-    bool reachedIDEnd;
     CScrolledVehicleListItemPanel *vehListItem;
-
-    if( m_cachedVehicleIDs.empty() )
-    {
-        reachedIDEnd = true;
-    }
-    else
-    {
-        reachedIDEnd = false;
-    }
 
     for (int i = 0; i < m_scrolledWindow->getVehicleItemCount(); i++)
     {
         vehListItem = (*m_scrolledWindow)[i];
-        if( !reachedIDEnd )
+        
+        vehListItem->setRepresentedVehicle( nullptr );
+        vehListItem->clearAllStaticTexts();
+        vehListItem->disableAllButtons();
+        vehListItem->setShouldVehicleBeDeleted( false );   
+    }
+}
+
+void CVehicleBrowsePanel::setupListItems() 
+{
+    CScrolledVehicleListItemPanel *vehListItem;
+
+    for (int i = 0; i < m_scrolledWindow->getVehicleItemCount(); i++)
+    {
+        vehListItem = (*m_scrolledWindow)[i];
+        
+        if( ( m_currentTopmostVehicleIDIterator + i ) != m_cachedVehicleIDs.end() )
         {
-            if( ( m_currentTopmostVehicleIDIterator + i ) != m_cachedVehicleIDs.end() )
-            {
-                uint32_t id = *( m_currentTopmostVehicleIDIterator + i );
-                vehListItem->setRepresentedVehicle( m_databaseHandle->getVehicleHandleByID( id ) );
-                vehListItem->resetLabelStaticTexts();
-                vehListItem->setVehicleDataStaticTexts();
-                vehListItem->enableAllButtons();
-            }
-            else
-            {   
-                reachedIDEnd = true;
-            }
+            uint32_t id = *( m_currentTopmostVehicleIDIterator + i );
+            vehListItem->setRepresentedVehicle( m_databaseHandle->getVehicleHandleByID( id ) );
+            vehListItem->resetLabelStaticTexts();
+            vehListItem->setVehicleDataStaticTexts();
+            vehListItem->enableAllButtons();
         }
         else
-        {
-            vehListItem->setRepresentedVehicle( nullptr );
-            vehListItem->clearAllStaticTexts();
-            vehListItem->disableAllButtons();
+        {   
+            break;
         }
-        vehListItem->setShouldVehicleBeDeleted( false );   
     }
 }
 
 void CVehicleBrowsePanel::resetDatabaseCache() 
 {
-    // TODO adjust it for filers
-    m_cachedVehicleIDs = m_databaseHandle->getAllVehicleIDs();
+    m_cachedVehicleIDs = m_databaseHandle->queryVehicleIDs( m_vehicleComparators );
 
     m_currentTopmostVehicleIDIterator = m_cachedVehicleIDs.begin();
 }
@@ -140,6 +137,7 @@ void CVehicleBrowsePanel::refreshListItems()
 {
     removeVehiclesIfNeeded();
     resetDatabaseCache();
+    resetListItems();
     setupListItems();
     validatePageTurnButtons();
 
@@ -197,7 +195,8 @@ void CVehicleBrowsePanel::OnRefreshButtonClicked(wxCommandEvent& event)
 
 void CVehicleBrowsePanel::OnSetFiltersButtonClicked(wxCommandEvent& event) 
 {
-// TODO: Implement OnSetFiltersButtonClicked
+    FVehicleFilterDialog *filterDialog = new FVehicleFilterDialog( this, &m_vehicleComparators );
+    filterDialog->Show();
 }
 
 
