@@ -31,20 +31,36 @@ A used-car dealer GUI C++ program made for university project with the use of wx
 ```git clone https://github.com/SpontanCombust/Komis```
 
 
-**5. Move to directory, configure and build**
+**5. Move to the project directory**
 
 ```cd Komis```
 
+**6. Create build directory and move to it**
+
 ```mkdir build```
 
-```cmake -S ./ -B ./build ```
+```cd build```
 
-```cmake --build ./build```
+**7. Configure the build**
+
+- for Debug build
+  
+    ```cmake -DCMAKE_BUILD_TYPE=Debug ../```
+
+- for Release build
+  
+  ```cmake -DCMAKE_BUILD_TYPE=Release ../```
+
+**8. Build the project**
+
+```cmake --build ./ ```
+
+**9. Install**
+
+```cmake --install ./```
 
 
-**6. Run the executable**
-
-```./build/Komis```
+In Komis/bin an executable for specified build type will be generated.
 
 <br/>
 
