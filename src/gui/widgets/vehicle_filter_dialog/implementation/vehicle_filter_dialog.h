@@ -7,7 +7,7 @@
 class FVehicleFilterDialog : public IVehicleFilterDialog
 {
 private:
-	std::vector<VehicleComparator>* m_vehicleComparator;
+	std::vector<VehicleComparator>* m_vehicleComparators;
 protected:
 	// Handlers for IVehicleFilterDialog events.
 	void checkBox_vehicleTypeChecked(wxCommandEvent& event);
@@ -30,7 +30,7 @@ protected:
 	virtual void OnSearchSubmitVehicleButtonClicked(wxCommandEvent& event) override;
 	void OnCancel(wxCommandEvent& event);
 public:
-	FVehicleFilterDialog(wxWindow* parent);
+	FVehicleFilterDialog(wxWindow* parent, std::vector<VehicleComparator>* vehicleComparatorsPtr);
 private:
 	void populateVehicleTypeChoice();
 	void populateFuelChoice();
