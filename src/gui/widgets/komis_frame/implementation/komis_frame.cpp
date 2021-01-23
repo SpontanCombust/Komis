@@ -1,7 +1,6 @@
 #include "komis_frame.hpp"
 
 #include "gui/widgets/vehicle_creator_dialog/implementation/vehicle_creator_dialog.hpp"
-#include "gui/widgets/vehicle_filter_dialog/implementation/vehicle_filter_dialog.h"
 
 CKomisFrame::CKomisFrame( wxWindow *parent ) : IKomisFrame( parent ) 
 {
