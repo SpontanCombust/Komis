@@ -38,6 +38,14 @@ SVehicle& CVehicleManager::getVehicleByID( uint32_t id )
         throw "No vehicle with that ID found!";        
 }
 
+SVehicle* CVehicleManager::getVehicleHandleByID( uint32_t id ) 
+{
+    if(  m_vehicleMap.find( id ) != m_vehicleMap.end() )
+        return &m_vehicleMap[ id ];
+    else
+        return nullptr;
+}
+
 void CVehicleManager::removeVehicleByID(uint32_t id) 
 {
     if(  m_vehicleMap.find( id ) != m_vehicleMap.end() )
