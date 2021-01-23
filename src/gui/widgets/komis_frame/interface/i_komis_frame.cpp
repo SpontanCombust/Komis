@@ -15,16 +15,36 @@ IKomisFrame::IKomisFrame( wxWindow* parent, wxWindowID id, const wxString& title
 
 	m_menubar = new wxMenuBar( 0 );
 	m_menu_file = new wxMenu();
-	wxMenuItem* m_menu_file_menuItem_close;
-	m_menu_file_menuItem_close = new wxMenuItem( m_menu_file, wxID_ANY, wxString( _("Zakończ") ) , wxEmptyString, wxITEM_NORMAL );
-	m_menu_file->Append( m_menu_file_menuItem_close );
+	wxMenuItem* m_menu_file_new;
+	m_menu_file_new = new wxMenuItem( m_menu_file, wxID_ANY, wxString( _("Nowy...") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu_file->Append( m_menu_file_new );
+
+	wxMenuItem* m_menu_file_load;
+	m_menu_file_load = new wxMenuItem( m_menu_file, wxID_ANY, wxString( _("Wczytaj...") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu_file->Append( m_menu_file_load );
+
+	wxMenuItem* m_menu_file_loadAndAppend;
+	m_menu_file_loadAndAppend = new wxMenuItem( m_menu_file, wxID_ANY, wxString( _("Wczytaj i przyłącz...") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu_file->Append( m_menu_file_loadAndAppend );
+
+	wxMenuItem* m_menu_file_save;
+	m_menu_file_save = new wxMenuItem( m_menu_file, wxID_ANY, wxString( _("Zapisz...") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu_file->Append( m_menu_file_save );
+
+	wxMenuItem* m_menu_file_saveAs;
+	m_menu_file_saveAs = new wxMenuItem( m_menu_file, wxID_ANY, wxString( _("Zapisz jako...") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu_file->Append( m_menu_file_saveAs );
+
+	wxMenuItem* m_menu_file_close;
+	m_menu_file_close = new wxMenuItem( m_menu_file, wxID_ANY, wxString( _("Zakończ") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu_file->Append( m_menu_file_close );
 
 	m_menubar->Append( m_menu_file, _("Plik") );
 
 	m_menu_help = new wxMenu();
-	wxMenuItem* m_menu_help_menuItem_displayDescription;
-	m_menu_help_menuItem_displayDescription = new wxMenuItem( m_menu_help, wxID_ANY, wxString( _("O programie Komis...") ) , wxEmptyString, wxITEM_NORMAL );
-	m_menu_help->Append( m_menu_help_menuItem_displayDescription );
+	wxMenuItem* m_menu_help_displayDescription;
+	m_menu_help_displayDescription = new wxMenuItem( m_menu_help, wxID_ANY, wxString( _("O programie Komis...") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu_help->Append( m_menu_help_displayDescription );
 
 	m_menubar->Append( m_menu_help, _("Pomoc") );
 
@@ -75,8 +95,13 @@ IKomisFrame::IKomisFrame( wxWindow* parent, wxWindowID id, const wxString& title
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnClose ), this, m_menu_file_menuItem_close->GetId());
-	m_menu_help->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnDisplayAbout ), this, m_menu_help_menuItem_displayDescription->GetId());
+	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnNewDatabase ), this, m_menu_file_new->GetId());
+	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnLoadDatabase ), this, m_menu_file_load->GetId());
+	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnLoadDatabaseAndAppend ), this, m_menu_file_loadAndAppend->GetId());
+	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnSaveDatabase ), this, m_menu_file_save->GetId());
+	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnSaveDatabaseAs ), this, m_menu_file_saveAs->GetId());
+	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnClose ), this, m_menu_file_close->GetId());
+	m_menu_help->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnDisplayAbout ), this, m_menu_help_displayDescription->GetId());
 	m_button1->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IKomisFrame::OnAddVehicleButtonClicked ), NULL, this );
 }
 
