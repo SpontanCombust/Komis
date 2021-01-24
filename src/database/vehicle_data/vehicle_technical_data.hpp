@@ -1,6 +1,7 @@
 #ifndef __VEHICLE_TECHNICAL_DATA_H__
 #define __VEHICLE_TECHNICAL_DATA_H__
 
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -58,5 +59,9 @@ struct SVehicleTechnicalData
     unsigned int engineCapacityL;
     EVehicleDoorQuantity doorQuantity;
 };
+
+std::ostream& operator<<( std::ostream& out, const SVehicleTechnicalData& vehicleTechnicalData );
+std::istream& operator>>( std::istream& in, SVehicleTechnicalData& vehicleTechnicalData ); 
+
 
 #endif // __VEHICLE_TECHNICAL_DATA_H__
