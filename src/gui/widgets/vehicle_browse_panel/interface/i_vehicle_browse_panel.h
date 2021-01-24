@@ -37,6 +37,7 @@ class IVehicleBrowsePanel : public wxPanel
 	protected:
 		wxButton* m_button_refresh;
 		wxButton* m_button_setFilters;
+		wxButton* m_button_resetFilters;
 		CScrolledVehicleListWindow* m_scrolledWindow;
 		wxButton* m_button_prevPage;
 		wxButton* m_button_nextPage;
@@ -44,6 +45,7 @@ class IVehicleBrowsePanel : public wxPanel
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnRefreshButtonClicked( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnSetFiltersButtonClicked( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnResetFiletrsButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnPrevPageButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnNextPageButtonClick( wxCommandEvent& event ) { event.Skip(); }
 

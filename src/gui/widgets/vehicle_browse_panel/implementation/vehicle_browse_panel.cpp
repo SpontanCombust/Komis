@@ -204,6 +204,11 @@ void CVehicleBrowsePanel::OnSetFiltersButtonClicked(wxCommandEvent& event)
     filterDialog->Show();
 }
 
+void CVehicleBrowsePanel::OnResetFiletrsButtonClick(wxCommandEvent& event) 
+{
+    m_vehicleComparatorFlags = 0;
+}
+
 
 
 void CVehicleBrowsePanel::setDatabaseHandle( CVehicleManager *database ) 

@@ -18,13 +18,16 @@ IVehicleBrowsePanel::IVehicleBrowsePanel( wxWindow* parent, wxWindowID id, const
 	bSizer4 = new wxBoxSizer( wxHORIZONTAL );
 
 
-	bSizer4->Add( 0, 0, 1, wxEXPAND, 5 );
+	bSizer4->Add( 0, 0, 5, wxEXPAND, 5 );
 
 	m_button_refresh = new wxButton( this, wxID_ANY, _("Odśwież"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer4->Add( m_button_refresh, 0, wxALL, 5 );
+	bSizer4->Add( m_button_refresh, 2, wxALL, 5 );
 
 	m_button_setFilters = new wxButton( this, wxID_ANY, _("Ustaw filtry"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer4->Add( m_button_setFilters, 0, wxALL, 5 );
+	bSizer4->Add( m_button_setFilters, 2, wxALL, 5 );
+
+	m_button_resetFilters = new wxButton( this, wxID_ANY, _("Resetuj filtry"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer4->Add( m_button_resetFilters, 1, wxALL, 5 );
 
 
 	bSizer1->Add( bSizer4, 0, wxEXPAND, 5 );
@@ -62,6 +65,7 @@ IVehicleBrowsePanel::IVehicleBrowsePanel( wxWindow* parent, wxWindowID id, const
 	// Connect Events
 	m_button_refresh->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleBrowsePanel::OnRefreshButtonClicked ), NULL, this );
 	m_button_setFilters->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleBrowsePanel::OnSetFiltersButtonClicked ), NULL, this );
+	m_button_resetFilters->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleBrowsePanel::OnResetFiletrsButtonClick ), NULL, this );
 	m_button_prevPage->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleBrowsePanel::OnPrevPageButtonClick ), NULL, this );
 	m_button_nextPage->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleBrowsePanel::OnNextPageButtonClick ), NULL, this );
 }
@@ -71,6 +75,7 @@ IVehicleBrowsePanel::~IVehicleBrowsePanel()
 	// Disconnect Events
 	m_button_refresh->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleBrowsePanel::OnRefreshButtonClicked ), NULL, this );
 	m_button_setFilters->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleBrowsePanel::OnSetFiltersButtonClicked ), NULL, this );
+	m_button_resetFilters->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleBrowsePanel::OnResetFiletrsButtonClick ), NULL, this );
 	m_button_prevPage->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleBrowsePanel::OnPrevPageButtonClick ), NULL, this );
 	m_button_nextPage->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleBrowsePanel::OnNextPageButtonClick ), NULL, this );
 

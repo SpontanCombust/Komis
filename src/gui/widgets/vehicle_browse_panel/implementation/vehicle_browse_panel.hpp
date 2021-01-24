@@ -36,6 +36,7 @@ class CVehicleBrowsePanel : public IVehicleBrowsePanel
 		void OnNextPageButtonClick( wxCommandEvent& event ) override;
 		void OnRefreshButtonClicked( wxCommandEvent& event ) override;
 		void OnSetFiltersButtonClicked( wxCommandEvent& event ) override;
+		void OnResetFiletrsButtonClick( wxCommandEvent& event ) override;
 		
 	public:
 		/** Constructor */
