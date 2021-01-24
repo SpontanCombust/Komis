@@ -22,7 +22,7 @@ CScrolledVehicleListItemPanel::~CScrolledVehicleListItemPanel()
 
 void CScrolledVehicleListItemPanel::OnViewVehicleButtonClicked(wxCommandEvent& event) 
 {
-    SVehicleViewDialog* vehicleViewDialog = new SVehicleViewDialog(*m_representedVehicleHandle,this);
+    CVehicleViewDialog* vehicleViewDialog = new CVehicleViewDialog(*m_representedVehicleHandle,this);
     vehicleViewDialog->Show();
 }
 

@@ -26,9 +26,9 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class VehicleViewDialog
+/// Class IVehicleViewDialog
 ///////////////////////////////////////////////////////////////////////////////
-class VehicleViewDialog : public wxDialog
+class IVehicleViewDialog : public wxDialog
 {
 	private:
 
@@ -69,8 +69,8 @@ class VehicleViewDialog : public wxDialog
 
 	public:
 
-		VehicleViewDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Pojazd"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
-		~VehicleViewDialog();
+		IVehicleViewDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Pojazd"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
+		~IVehicleViewDialog();
 
 };
 

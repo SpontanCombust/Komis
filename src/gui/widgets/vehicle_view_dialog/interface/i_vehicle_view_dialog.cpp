@@ -9,7 +9,7 @@
 
 ///////////////////////////////////////////////////////////////////////////
 
-VehicleViewDialog::VehicleViewDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+IVehicleViewDialog::IVehicleViewDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 
@@ -246,12 +246,12 @@ VehicleViewDialog::VehicleViewDialog( wxWindow* parent, wxWindowID id, const wxS
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	ok_button->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VehicleViewDialog::OkButtonClicked ), NULL, this );
+	ok_button->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleViewDialog::OkButtonClicked ), NULL, this );
 }
 
-VehicleViewDialog::~VehicleViewDialog()
+IVehicleViewDialog::~IVehicleViewDialog()
 {
 	// Disconnect Events
-	ok_button->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( VehicleViewDialog::OkButtonClicked ), NULL, this );
+	ok_button->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IVehicleViewDialog::OkButtonClicked ), NULL, this );
 
 }

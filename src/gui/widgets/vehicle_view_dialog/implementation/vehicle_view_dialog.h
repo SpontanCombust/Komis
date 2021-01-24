@@ -6,16 +6,16 @@
 #include "database/vehicle.hpp"
 
 
-class SVehicleViewDialog : public VehicleViewDialog
+class CVehicleViewDialog : public IVehicleViewDialog
 {
 private:
 	SVehicle m_representedVehicle;
 protected:
-	// Handlers for VehicleViewDialog events.
+	// Handlers for IVehicleViewDialog events.
 	void OkButtonClicked(wxCommandEvent& event);
 public:
 	/** Constructor */
-	SVehicleViewDialog(SVehicle Vehicle, wxWindow* parent);
+	CVehicleViewDialog(SVehicle Vehicle, wxWindow* parent);
 	//// end generated class members
 
 };

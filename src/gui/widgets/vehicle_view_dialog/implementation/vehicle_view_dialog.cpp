@@ -1,6 +1,6 @@
 #include "vehicle_view_dialog.h"
 
-SVehicleViewDialog::SVehicleViewDialog(SVehicle Vehicle, wxWindow* parent) : VehicleViewDialog( parent )
+CVehicleViewDialog::CVehicleViewDialog(SVehicle Vehicle, wxWindow* parent) : IVehicleViewDialog( parent )
 {
 	std::string tmp;
 	wxString number;
@@ -46,7 +46,7 @@ SVehicleViewDialog::SVehicleViewDialog(SVehicle Vehicle, wxWindow* parent) : Veh
 	m_staticText_additionalInformation->SetLabel(Vehicle.specimenData.additionalInformation);
 }
 
-void SVehicleViewDialog::OkButtonClicked( wxCommandEvent& event )
+void CVehicleViewDialog::OkButtonClicked( wxCommandEvent& event )
 {
 	Close();
 }
