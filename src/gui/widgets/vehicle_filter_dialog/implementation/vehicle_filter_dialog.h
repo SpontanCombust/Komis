@@ -6,11 +6,10 @@
 
 class CVehicleFilterDialog : public IVehicleFilterDialog
 {
-private:
+protected:
 	SVehicleComparatorDataBundle *m_comparatorDataBundle;
 	int *m_vehicleComparatorFlags;
-
-protected:
+	
 	// Handlers for IVehicleFilterDialog events.
 	void checkBox_vehicleTypeChecked(wxCommandEvent& event);
 	void checkBox_brandChecked(wxCommandEvent& event);
@@ -34,6 +33,7 @@ protected:
 
 public:
 	CVehicleFilterDialog(wxWindow* parent, SVehicleComparatorDataBundle *vehicleComparatorDataBundle, int *vehicleComparatorFlagsPtr);
+	~CVehicleFilterDialog();
 };
 
 #endif // __vehicle_filter_dialog__

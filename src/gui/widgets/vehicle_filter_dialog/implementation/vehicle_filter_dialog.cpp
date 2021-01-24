@@ -177,7 +177,14 @@ CVehicleFilterDialog::CVehicleFilterDialog(wxWindow* parent, SVehicleComparatorD
 		 
 }
 
-void CVehicleFilterDialog::toggleVehicleTypeWidgetIfNeeded() 
+CVehicleFilterDialog::~CVehicleFilterDialog() 
+{
+
+}
+
+
+
+void CVehicleFilterDialog::checkBox_vehicleTypeChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_vehicleType->IsChecked()) {
 		m_choice_vehicleType->Enable();
