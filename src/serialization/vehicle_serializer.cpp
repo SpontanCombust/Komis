@@ -1,17 +1,17 @@
 #include "vehicle_serializer.hpp"
 
-bool writeVehiclesToFile( const char *path, std::vector< SVehicle* > vehicleHandles, bool shouldAppend ) 
+bool writeVehiclesToFile( const char *path, std::vector< SVehicle* > vehicleHandles, bool shouldWhipeFile ) 
 {
     std::ofstream output;
 
-    if( shouldAppend )
+    if( shouldWhipeFile )
     {
-        output.open( path, std::ios::out | std::ios::app );
+        output.open( path, std::ios::out | std::ios::trunc );
+        output << KOMIS_WATERMARK_VEHICLE << '\n';
     }
     else
     {
-        output.open( path, std::ios::out | std::ios::trunc );
-        output << KOMIS_WATERMARK_VEHICLE;
+        output.open( path, std::ios::out | std::ios::app );
     }
 
     if( !output )
@@ -21,9 +21,9 @@ bool writeVehiclesToFile( const char *path, std::vector< SVehicle* > vehicleHand
 
     for( SVehicle *handle : vehicleHandles )
     {
-        output.write( ( char * )&( handle->basicData ), sizeof( SVehicleBasicData ) );   
-        output.write( ( char * )&( handle->technicalData ), sizeof( SVehicleTechnicalData ) );
-        output.write( ( char * )&( handle->specimenData ), sizeof( SVehicleSpecimenData ) );
+        output << handle->basicData;
+        output << handle->technicalData;
+        output << handle->specimenData;
     }
 
     output.close();
@@ -37,7 +37,7 @@ bool readVehiclesFromFile( const char *path, std::vector< SVehicle > *vehicleVec
     SVehicle readVehicle;
 
     input.open( path, std::ios::in );
-    if( input )
+    if( !input )
     {
         return false;
     }
@@ -53,9 +53,9 @@ bool readVehiclesFromFile( const char *path, std::vector< SVehicle > *vehicleVec
 
     while( !input.eof() )
     {
-        input.read( ( char * )&( readVehicle.basicData ), sizeof( SVehicleBasicData ) );
-        input.read( ( char * )&( readVehicle.technicalData ), sizeof( SVehicleTechnicalData ) );
-        input.read( ( char * )&( readVehicle.specimenData ), sizeof( SVehicleSpecimenData ) );
+        input >> readVehicle.basicData;
+        input >> readVehicle.technicalData;
+        input >> readVehicle.specimenData;
 
         vehicleVecPtr->push_back( readVehicle );
     }
