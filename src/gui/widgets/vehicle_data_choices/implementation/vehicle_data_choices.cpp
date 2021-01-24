@@ -173,6 +173,8 @@ CVehicleDoorQuantityChoice::CVehicleDoorQuantityChoice( wxWindow *parent, wxWind
 {
     m_possibleVehicleDoorQuantities = getPossibleVehicleDoorQuantities();
 
+    Clear();
+
     for( const auto& vehicleDoorQuantity : m_possibleVehicleDoorQuantities )
     {
         Append( vehicleDoorQuantityToStringPolish( vehicleDoorQuantity ) );

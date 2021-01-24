@@ -69,7 +69,7 @@ IVehicleInsertDataPanel::IVehicleInsertDataPanel( wxWindow* parent, wxWindowID i
 
 	wxArrayString m_choice_wheelDriveChoices;
 	m_choice_wheelDrive = new CVehicleWheelDriveChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), m_choice_wheelDriveChoices, 0 );
-	m_choice_wheelDrive->SetSelection( 1 );
+	m_choice_wheelDrive->SetSelection( 0 );
 	fgSizer1->Add( m_choice_wheelDrive, 0, wxALL|wxEXPAND, 5 );
 
 	m_staticText_engineCapacity = new wxStaticText( this, wxID_ANY, _("Pojemność silnika [L]"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -92,7 +92,7 @@ IVehicleInsertDataPanel::IVehicleInsertDataPanel( wxWindow* parent, wxWindowID i
 
 	wxArrayString m_choice_doorQuantityChoices;
 	m_choice_doorQuantity = new CVehicleDoorQuantityChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), m_choice_doorQuantityChoices, 0 );
-	m_choice_doorQuantity->SetSelection( 0 );
+	m_choice_doorQuantity->SetSelection( 1 );
 	fgSizer1->Add( m_choice_doorQuantity, 0, wxALL|wxEXPAND, 5 );
 
 
