@@ -31,6 +31,8 @@ public:
     SVehicle* getVehicleHandleByID( uint32_t id );
     // removes a vehicle with that id, throws an exception when doesn't find one
     void removeVehicleByID( uint32_t id );
+    // removes all vehicles
+    void removeAllVehicles();
 
     // returns a vector of IDs of all available vehicles
     std::vector< uint32_t > getAllVehicleIDs();
