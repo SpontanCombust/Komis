@@ -21,7 +21,6 @@
 #include <wx/colour.h>
 #include <wx/settings.h>
 #include <wx/stattext.h>
-#include <wx/button.h>
 #include <wx/panel.h>
 #include <wx/sizer.h>
 #include <wx/notebook.h>
@@ -44,7 +43,6 @@ class IKomisFrame : public wxFrame
 		wxNotebook* m_notebook;
 		wxPanel* m_notebook_pageGeneral;
 		wxStaticText* m_staticText1;
-		wxButton* m_button1;
 		wxPanel* m_notebook_pageGeneral_panel;
 		wxPanel* m_notebook_pageVehicles;
 		CVehicleBrowsePanel* m_notebook_pageVehicles_panel;
@@ -52,7 +50,6 @@ class IKomisFrame : public wxFrame
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnClose( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnDisplayAbout( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnAddVehicleButtonClicked( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:

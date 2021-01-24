@@ -1,6 +1,7 @@
 ﻿#include "vehicle_browse_panel.hpp"
 
 #include "gui/widgets/vehicle_filter_dialog/implementation/vehicle_filter_dialog.h"
+#include "gui/widgets/vehicle_creator_dialog/implementation/vehicle_creator_dialog.hpp"
 
 #include <wx/msgdlg.h>
 
@@ -25,6 +26,10 @@ CVehicleBrowsePanel::~CVehicleBrowsePanel()
 
 }
 
+void CVehicleBrowsePanel::setDatabaseHandle( CVehicleManager *database ) 
+{
+    m_databaseHandle = database;
+}
 
 
 void CVehicleBrowsePanel::removeVehiclesIfNeeded() 
@@ -209,9 +214,8 @@ void CVehicleBrowsePanel::OnResetFiletrsButtonClick(wxCommandEvent& event)
     m_vehicleComparatorFlags = 0;
 }
 
-
-
-void CVehicleBrowsePanel::setDatabaseHandle( CVehicleManager *database ) 
+void CVehicleBrowsePanel::OnAddVehicleButtonClick(wxCommandEvent& event) 
 {
-    m_databaseHandle = database;
+    CVehicleCreatorDialog *vehicleCreator = new CVehicleCreatorDialog( m_databaseHandle, this );
+    vehicleCreator->Show();
 }

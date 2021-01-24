@@ -14,8 +14,6 @@ public:
     ~CKomisFrame();
 
     virtual void OnClose( wxCommandEvent& event ) override;
-    // temporary placeholder
-    virtual void OnAddVehicleButtonClicked( wxCommandEvent& event ) override; 
 };
 
 #endif // __KOMIS_FRAME_H__

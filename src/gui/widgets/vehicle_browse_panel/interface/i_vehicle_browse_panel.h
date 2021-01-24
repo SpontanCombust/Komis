@@ -35,6 +35,7 @@ class IVehicleBrowsePanel : public wxPanel
 	private:
 
 	protected:
+		wxButton* m_button_addVehicle;
 		wxButton* m_button_refresh;
 		wxButton* m_button_setFilters;
 		wxButton* m_button_resetFilters;
@@ -43,6 +44,7 @@ class IVehicleBrowsePanel : public wxPanel
 		wxButton* m_button_nextPage;
 
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnAddVehicleButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnRefreshButtonClicked( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnSetFiltersButtonClicked( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnResetFiletrsButtonClick( wxCommandEvent& event ) { event.Skip(); }
