@@ -1,4 +1,6 @@
 ﻿#include "scrolled_vehicle_list_item_panel.hpp"
+#include "gui/widgets/vehicle_view_dialog/implementation/vehicle_view_dialog.h"
+#include "gui/widgets/vehicle_edit_dialog/implementation/vehicle_edit_dialog.h"
 
 #include <wx/msgdlg.h>
 
@@ -20,12 +22,14 @@ CScrolledVehicleListItemPanel::~CScrolledVehicleListItemPanel()
 
 void CScrolledVehicleListItemPanel::OnViewVehicleButtonClicked(wxCommandEvent& event) 
 {
-// TODO: Implement OnViewVehicleButtonClicked
+    SVehicleViewDialog* vehicleViewDialog = new SVehicleViewDialog(*m_representedVehicleHandle,this);
+    vehicleViewDialog->Show();
 }
 
 void CScrolledVehicleListItemPanel::OnEditVehicleButtonClicked(wxCommandEvent& event) 
 {
-// TODO: Implement OnEditVehicleButtonClicked
+    CVehicleEditDialog* vehicleEditDialog = new CVehicleEditDialog(m_representedVehicleHandle, this);
+    vehicleEditDialog->Show();
 }
 
 void CScrolledVehicleListItemPanel::OnDeleteVehicleButtonClicked(wxCommandEvent& event) 
