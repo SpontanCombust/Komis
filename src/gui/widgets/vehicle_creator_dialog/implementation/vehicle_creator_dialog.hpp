@@ -15,13 +15,6 @@ public:
 
     virtual void OnSubmitVehicleButtonClicked( wxCommandEvent& event ) override;
     virtual void OnCancel( wxCommandEvent& event ) override;
-
-private:
-    void populateVehicleTypeChoice();
-    void populateFuelChoice();
-    void populateTransmissionChoice();
-    void populateWheelDriveChoice();
-    void populateDoorQuantityChoice();
 };
 
 
