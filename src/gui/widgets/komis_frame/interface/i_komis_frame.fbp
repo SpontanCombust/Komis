@@ -54,6 +54,7 @@
             <property name="window_name"></property>
             <property name="window_style">wxTAB_TRAVERSAL</property>
             <property name="xrc_skip_sizer">1</property>
+            <event name="OnClose">OnClose</event>
             <object class="wxMenuBar" expanded="1">
                 <property name="bg"></property>
                 <property name="context_help"></property>
@@ -90,7 +91,7 @@
                         <property name="label">Nowy...</property>
                         <property name="name">m_menu_file_new</property>
                         <property name="permission">none</property>
-                        <property name="shortcut"></property>
+                        <property name="shortcut">CTRL+n</property>
                         <property name="unchecked_bitmap"></property>
                         <event name="OnMenuSelection">OnNewDatabase</event>
                     </object>
@@ -101,12 +102,12 @@
                         <property name="help"></property>
                         <property name="id">wxID_ANY</property>
                         <property name="kind">wxITEM_NORMAL</property>
-                        <property name="label">Wczytaj...</property>
-                        <property name="name">m_menu_file_load</property>
+                        <property name="label">Otwórz...</property>
+                        <property name="name">m_menu_file_open</property>
                         <property name="permission">none</property>
-                        <property name="shortcut"></property>
+                        <property name="shortcut">CTRL+o</property>
                         <property name="unchecked_bitmap"></property>
-                        <event name="OnMenuSelection">OnLoadDatabase</event>
+                        <event name="OnMenuSelection">OnOpenDatabase</event>
                     </object>
                     <object class="wxMenuItem" expanded="1">
                         <property name="bitmap"></property>
@@ -115,12 +116,12 @@
                         <property name="help"></property>
                         <property name="id">wxID_ANY</property>
                         <property name="kind">wxITEM_NORMAL</property>
-                        <property name="label">Wczytaj i przyłącz...</property>
-                        <property name="name">m_menu_file_loadAndAppend</property>
+                        <property name="label">Importuj...</property>
+                        <property name="name">m_menu_file_import</property>
                         <property name="permission">none</property>
                         <property name="shortcut"></property>
                         <property name="unchecked_bitmap"></property>
-                        <event name="OnMenuSelection">OnLoadDatabaseAndAppend</event>
+                        <event name="OnMenuSelection">OnImportDatabase</event>
                     </object>
                     <object class="wxMenuItem" expanded="1">
                         <property name="bitmap"></property>
@@ -132,7 +133,7 @@
                         <property name="label">Zapisz...</property>
                         <property name="name">m_menu_file_save</property>
                         <property name="permission">none</property>
-                        <property name="shortcut"></property>
+                        <property name="shortcut">CTRL+s</property>
                         <property name="unchecked_bitmap"></property>
                         <event name="OnMenuSelection">OnSaveDatabase</event>
                     </object>
@@ -146,7 +147,7 @@
                         <property name="label">Zapisz jako...</property>
                         <property name="name">m_menu_file_saveAs</property>
                         <property name="permission">none</property>
-                        <property name="shortcut"></property>
+                        <property name="shortcut">CTRL+SHIFT+s</property>
                         <property name="unchecked_bitmap"></property>
                         <event name="OnMenuSelection">OnSaveDatabaseAs</event>
                     </object>
