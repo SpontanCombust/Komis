@@ -5,11 +5,11 @@
 // PLEASE DO *NOT* EDIT THIS FILE!
 ///////////////////////////////////////////////////////////////////////////
 
-#include "i_vehicle_insert_data_panel.h"
+#include "i_vehicle_data_insertion_panel.h"
 
 ///////////////////////////////////////////////////////////////////////////
 
-IVehicleInsertDataPanel::IVehicleInsertDataPanel( wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, long style, const wxString& name ) : wxPanel( parent, id, pos, size, style, name )
+IVehicleDataInsertionPanel::IVehicleDataInsertionPanel( wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, long style, const wxString& name ) : wxPanel( parent, id, pos, size, style, name )
 {
 	wxFlexGridSizer* fgSizer1;
 	fgSizer1 = new wxFlexGridSizer( 0, 2, 0, 0 );
@@ -142,6 +142,6 @@ IVehicleInsertDataPanel::IVehicleInsertDataPanel( wxWindow* parent, wxWindowID i
 	fgSizer1->Fit( this );
 }
 
-IVehicleInsertDataPanel::~IVehicleInsertDataPanel()
+IVehicleDataInsertionPanel::~IVehicleDataInsertionPanel()
 {
 }

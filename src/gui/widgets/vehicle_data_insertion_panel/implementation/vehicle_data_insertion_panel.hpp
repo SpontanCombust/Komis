@@ -1,15 +1,15 @@
-#ifndef __VEHICLE_INSERT_DATA_PANEL_H__
-#define __VEHICLE_INSERT_DATA_PANEL_H__
+#ifndef __VEHICLE_DATA_INSERTION_PANEL_H__
+#define __VEHICLE_DATA_INSERTION_PANEL_H__
 
-#include "../interface/i_vehicle_insert_data_panel.h"
+#include "../interface/i_vehicle_data_insertion_panel.h"
 #include "database/vehicle.hpp"
 
 
-class CVehicleInsertDataPanel : public IVehicleInsertDataPanel
+class CVehicleDataInsertionPanel : public IVehicleDataInsertionPanel
 {
 public:
-    CVehicleInsertDataPanel( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxTAB_TRAVERSAL, const wxString& name = wxEmptyString );
-    ~CVehicleInsertDataPanel();
+    CVehicleDataInsertionPanel( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxTAB_TRAVERSAL, const wxString& name = wxEmptyString );
+    ~CVehicleDataInsertionPanel();
 
     void setVehicleTypeInTheChoice( EVehicleType vehicleType );
     EVehicleType getVehicleTypeFromTheChoice();
@@ -54,4 +54,4 @@ public:
     std::string getVehicleAdditionalInfoFromTheTextCtrl();
 };
 
-#endif // __VEHICLE_INSERT_DATA_PANEL_H__
+#endif // __VEHICLE_DATA_INSERTION_PANEL_H__

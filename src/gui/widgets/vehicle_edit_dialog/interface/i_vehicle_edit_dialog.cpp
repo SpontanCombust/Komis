@@ -16,7 +16,7 @@ IVehicleEditDialog::IVehicleEditDialog( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer3;
 	bSizer3 = new wxBoxSizer( wxVERTICAL );
 
-	m_panel_vehicleInsertData = new CVehicleInsertDataPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	m_panel_vehicleInsertData = new CVehicleDataInsertionPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	bSizer3->Add( m_panel_vehicleInsertData, 8, wxEXPAND | wxALL, 5 );
 
 	wxBoxSizer* bSizer2;

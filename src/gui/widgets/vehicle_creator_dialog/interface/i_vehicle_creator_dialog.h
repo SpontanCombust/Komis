@@ -10,7 +10,7 @@
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
 #include <wx/intl.h>
-#include "gui/widgets/vehicle_insert_data_panel/implementation/vehicle_insert_data_panel.hpp"
+#include "gui/widgets/vehicle_data_insertion_panel/implementation/vehicle_data_insertion_panel.hpp"
 #include <wx/panel.h>
 #include <wx/gdicmn.h>
 #include <wx/font.h>
@@ -35,7 +35,7 @@ class IVehicleCreatorDialog : public wxDialog
 	private:
 
 	protected:
-		CVehicleInsertDataPanel* m_panel_vehicleInsertData;
+		CVehicleDataInsertionPanel* m_panel_vehicleInsertData;
 		wxButton* m_button_submitVehicle;
 		wxButton* m_button_cancel;
 
