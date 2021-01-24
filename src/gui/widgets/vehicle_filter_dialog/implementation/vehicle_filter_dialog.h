@@ -7,7 +7,7 @@
 class CVehicleFilterDialog : public IVehicleFilterDialog
 {
 private:
-	SVehicleComparatorDataBundle *m_vehicleComparatorDataBundle;
+	SVehicleComparatorDataBundle *m_comparatorDataBundle;
 	int *m_vehicleComparatorFlags;
 
 protected:
