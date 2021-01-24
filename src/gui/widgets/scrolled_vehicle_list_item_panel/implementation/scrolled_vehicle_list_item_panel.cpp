@@ -28,7 +28,7 @@ void CScrolledVehicleListItemPanel::OnViewVehicleButtonClicked(wxCommandEvent& e
 
 void CScrolledVehicleListItemPanel::OnEditVehicleButtonClicked(wxCommandEvent& event) 
 {
-    EVehicleEditDialog* vehicleEditDialog = new EVehicleEditDialog(m_representedVehicleHandle, this);
+    CVehicleEditDialog* vehicleEditDialog = new CVehicleEditDialog(m_representedVehicleHandle, this);
     vehicleEditDialog->Show();
 }
 
