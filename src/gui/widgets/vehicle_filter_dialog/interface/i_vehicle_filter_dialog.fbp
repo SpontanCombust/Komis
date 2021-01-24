@@ -45,7 +45,7 @@
             <property name="minimum_size">550,800</property>
             <property name="name">IVehicleFilterDialog</property>
             <property name="pos">-1,-1</property>
-            <property name="size">550,800</property>
+            <property name="size">-1,-1</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
             <property name="title">Wyszukiwanie pojazdu</property>
@@ -60,8 +60,8 @@
                 <property name="permission">none</property>
                 <object class="sizeritem" expanded="1">
                     <property name="border">5</property>
-                    <property name="flag">wxALIGN_CENTER_HORIZONTAL</property>
-                    <property name="proportion">1</property>
+                    <property name="flag">wxALIGN_CENTER_HORIZONTAL|wxEXPAND</property>
+                    <property name="proportion">10</property>
                     <object class="wxFlexGridSizer" expanded="1">
                         <property name="cols">3</property>
                         <property name="flexible_direction">wxBOTH</property>
@@ -135,11 +135,11 @@
                                 <property name="wrap">-1</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALIGN_CENTER_VERTICAL|wxALIGN_LEFT|wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxStaticText" expanded="1">
+                            <object class="wxStaticText" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -196,21 +196,21 @@
                                 <property name="wrap">-1</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">1</property>
-                            <object class="spacer" expanded="1">
+                            <object class="spacer" expanded="0">
                                 <property name="height">0</property>
                                 <property name="permission">protected</property>
                                 <property name="width">0</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT|wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxStaticText" expanded="1">
+                            <object class="wxStaticText" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -319,7 +319,7 @@
                                 <property name="show">1</property>
                                 <property name="size">280,-1</property>
                                 <property name="style"></property>
-                                <property name="subclass">; ; forward_declare</property>
+                                <property name="subclass">CVehicleTypeChoice; gui/widgets/vehicle_data_choices/implementation/vehicle_data_choices.hpp; ...</property>
                                 <property name="toolbar_pane">0</property>
                                 <property name="tooltip"></property>
                                 <property name="validator_data_type"></property>
@@ -331,11 +331,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -521,11 +521,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -711,11 +711,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -796,11 +796,11 @@
                                 <property name="width">0</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">1</property>
-                            <object class="spacer" expanded="1">
+                            <object class="spacer" expanded="0">
                                 <property name="height">0</property>
                                 <property name="permission">protected</property>
                                 <property name="width">0</property>
@@ -919,7 +919,7 @@
                                 <property name="show">1</property>
                                 <property name="size"></property>
                                 <property name="style"></property>
-                                <property name="subclass">; ; forward_declare</property>
+                                <property name="subclass">CVehicleFuelChoice; gui/widgets/vehicle_data_choices/implementation/vehicle_data_choices.hpp; ...</property>
                                 <property name="toolbar_pane">0</property>
                                 <property name="tooltip"></property>
                                 <property name="validator_data_type"></property>
@@ -931,11 +931,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -1109,7 +1109,7 @@
                                 <property name="show">1</property>
                                 <property name="size">-1,-1</property>
                                 <property name="style"></property>
-                                <property name="subclass">; ; forward_declare</property>
+                                <property name="subclass">CVehicleTransmissionChoice; gui/widgets/vehicle_data_choices/implementation/vehicle_data_choices.hpp; ...</property>
                                 <property name="toolbar_pane">0</property>
                                 <property name="tooltip"></property>
                                 <property name="validator_data_type"></property>
@@ -1121,11 +1121,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -1299,7 +1299,7 @@
                                 <property name="show">1</property>
                                 <property name="size">-1,-1</property>
                                 <property name="style"></property>
-                                <property name="subclass">; ; forward_declare</property>
+                                <property name="subclass">CVehicleWheelDriveChoice; gui/widgets/vehicle_data_choices/implementation/vehicle_data_choices.hpp; ...</property>
                                 <property name="toolbar_pane">0</property>
                                 <property name="tooltip"></property>
                                 <property name="validator_data_type"></property>
@@ -1311,11 +1311,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -1501,11 +1501,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -1566,11 +1566,11 @@
                                 <event name="OnCheckBox">checkBox_engineCapacityMinChecked</event>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT|wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxStaticText" expanded="1">
+                            <object class="wxStaticText" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -1627,11 +1627,11 @@
                                 <property name="wrap">-1</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL|wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxTextCtrl" expanded="1">
+                            <object class="wxTextCtrl" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -1691,11 +1691,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -1881,11 +1881,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -1946,11 +1946,11 @@
                                 <event name="OnCheckBox">checkBox_engineHorsepowerMinChecked</event>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT|wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxStaticText" expanded="1">
+                            <object class="wxStaticText" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -2007,11 +2007,11 @@
                                 <property name="wrap">-1</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL|wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxTextCtrl" expanded="1">
+                            <object class="wxTextCtrl" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -2071,11 +2071,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -2249,7 +2249,7 @@
                                 <property name="show">1</property>
                                 <property name="size">-1,-1</property>
                                 <property name="style"></property>
-                                <property name="subclass">; ; forward_declare</property>
+                                <property name="subclass">CVehicleDoorQuantityChoice; gui/widgets/vehicle_data_choices/implementation/vehicle_data_choices.hpp; ...</property>
                                 <property name="toolbar_pane">0</property>
                                 <property name="tooltip"></property>
                                 <property name="validator_data_type"></property>
@@ -2261,11 +2261,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -2326,11 +2326,11 @@
                                 <event name="OnCheckBox">checkBox_doorQuantityChecked</event>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">1</property>
-                            <object class="spacer" expanded="1">
+                            <object class="spacer" expanded="0">
                                 <property name="height">0</property>
                                 <property name="permission">protected</property>
                                 <property name="width">0</property>
@@ -2481,11 +2481,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -2546,11 +2546,11 @@
                                 <event name="OnCheckBox">checkBox_priceMinChecked</event>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT|wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxStaticText" expanded="1">
+                            <object class="wxStaticText" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -2607,11 +2607,11 @@
                                 <property name="wrap">-1</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL|wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxTextCtrl" expanded="1">
+                            <object class="wxTextCtrl" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -2671,11 +2671,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -2861,11 +2861,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -2926,11 +2926,11 @@
                                 <event name="OnCheckBox">checkBox_mileageMinChecked</event>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT|wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxStaticText" expanded="1">
+                            <object class="wxStaticText" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -2987,11 +2987,11 @@
                                 <property name="wrap">-1</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL|wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxTextCtrl" expanded="1">
+                            <object class="wxTextCtrl" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -3051,11 +3051,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -3241,11 +3241,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -3431,11 +3431,11 @@
                                 <property name="window_style"></property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxCheckBox" expanded="1">
+                            <object class="wxCheckBox" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>

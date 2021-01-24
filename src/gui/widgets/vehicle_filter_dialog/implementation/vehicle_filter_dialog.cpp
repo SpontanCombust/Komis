@@ -1,14 +1,9 @@
 ﻿#include "vehicle_filter_dialog.h"
 
-FVehicleFilterDialog::FVehicleFilterDialog(wxWindow* parent, std::vector<VehicleComparator>* vehicleComparatorsPtr) : IVehicleFilterDialog(parent)
+CVehicleFilterDialog::CVehicleFilterDialog(wxWindow* parent, SVehicleComparatorDataBundle *vehicleComparatorDataBundle, int *vehicleComparatorFlagsPtr) : IVehicleFilterDialog(parent)
 {
-	m_vehicleComparators = vehicleComparatorsPtr;
-
-	populateVehicleTypeChoice();
-	populateFuelChoice();
-	populateTransmissionChoice();
-	populateWheelDriveChoice();
-	populateDoorQuantityChoice();
+	m_vehicleComparatorDataBundle = vehicleComparatorDataBundle;
+	m_vehicleComparatorFlags = vehicleComparatorFlagsPtr;
 
 	m_choice_vehicleType->Disable();
 	m_textCtrl_brand->Disable();
@@ -30,81 +25,9 @@ FVehicleFilterDialog::FVehicleFilterDialog(wxWindow* parent, std::vector<Vehicle
 
 }
 
-void FVehicleFilterDialog::populateVehicleTypeChoice()
-{
-	std::vector< EVehicleType > vehicleTypes;
-	vehicleTypes = getPossibleVehicleTypes();
-	m_choice_vehicleType->Clear();
 
-	for (const auto& vehicleType : vehicleTypes)
-	{
-		m_choice_vehicleType->Append(vehicleTypeToStringPolish(vehicleType));
-	}
 
-	m_choice_vehicleType->SetSelection(0);
-}
-
-void FVehicleFilterDialog::populateFuelChoice()
-{
-	std::vector< EVehicleFuel > vehicleFuels;
-
-	vehicleFuels = getPossibleVehicleFuels();
-	m_choice_fuelType->Clear();
-
-	for (const auto& fuel : vehicleFuels)
-	{
-		m_choice_fuelType->Append(vehicleFuelToStringPolish(fuel));
-	}
-
-	m_choice_fuelType->SetSelection(0);
-}
-
-void FVehicleFilterDialog::populateTransmissionChoice()
-{
-	std::vector< EVehicleTransmission > vehicleTransmissions;
-
-	vehicleTransmissions = getPossibleVehicleTransmissions();
-	m_choice_transmission->Clear();
-
-	for (const auto& transmission : vehicleTransmissions)
-	{
-		m_choice_transmission->Append(vehicleTransmissionToStringPolish(transmission));
-	}
-
-	m_choice_transmission->SetSelection(0);
-}
-
-void FVehicleFilterDialog::populateWheelDriveChoice()
-{
-	std::vector< EVehicleWheelDrive > vehicleWheelDrives;
-
-	vehicleWheelDrives = getPossibleVehicleWheelDrives();
-	m_choice_wheelDrive->Clear();
-
-	for (const auto& wheelDrive : vehicleWheelDrives)
-	{
-		m_choice_wheelDrive->Append(vehicleWheelDriveToStringPolish(wheelDrive));
-	}
-
-	m_choice_wheelDrive->SetSelection(0);
-}
-
-void FVehicleFilterDialog::populateDoorQuantityChoice()
-{
-	std::vector< EVehicleDoorQuantity > vehicleDoorQuantities;
-
-	vehicleDoorQuantities = getPossibleVehicleDoorQuantities();
-	m_choice_doorQuantity->Clear();
-
-	for (const auto& doorQuantity : vehicleDoorQuantities)
-	{
-		m_choice_doorQuantity->Append(vehicleDoorQuantityToStringPolish(doorQuantity));
-	}
-
-	m_choice_doorQuantity->SetSelection(1);
-}
-
-void FVehicleFilterDialog::checkBox_vehicleTypeChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_vehicleTypeChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_vehicleType->IsChecked()) {
 		m_choice_vehicleType->Enable();
@@ -114,7 +37,7 @@ void FVehicleFilterDialog::checkBox_vehicleTypeChecked(wxCommandEvent& event)
 	}
 }
 
-void FVehicleFilterDialog::checkBox_brandChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_brandChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_brand->IsChecked()) {
 		m_textCtrl_brand->Enable();
@@ -124,7 +47,7 @@ void FVehicleFilterDialog::checkBox_brandChecked(wxCommandEvent& event)
 	}
 }
 
-void FVehicleFilterDialog::checkBox_modelChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_modelChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_model->IsChecked()) {
 		m_textCtrl_model->Enable();
@@ -134,7 +57,7 @@ void FVehicleFilterDialog::checkBox_modelChecked(wxCommandEvent& event)
 	}
 }
 
-void FVehicleFilterDialog::checkBox_fuelTypeChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_fuelTypeChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_fuelType->IsChecked()) {
 		m_choice_fuelType->Enable();
@@ -144,7 +67,7 @@ void FVehicleFilterDialog::checkBox_fuelTypeChecked(wxCommandEvent& event)
 	}
 }
 
-void FVehicleFilterDialog::checkBox_transmissionChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_transmissionChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_transmission->IsChecked()) {
 		m_choice_transmission->Enable();
@@ -154,7 +77,7 @@ void FVehicleFilterDialog::checkBox_transmissionChecked(wxCommandEvent& event)
 	}
 }
 
-void FVehicleFilterDialog::checkBox_wheelDriveChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_wheelDriveChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_wheelDrive->IsChecked()) {
 		m_choice_wheelDrive->Enable();
@@ -163,7 +86,7 @@ void FVehicleFilterDialog::checkBox_wheelDriveChecked(wxCommandEvent& event)
 		m_choice_wheelDrive->Disable();
 	}
 }
-void FVehicleFilterDialog::checkBox_engineCapacityMinChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_engineCapacityMinChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_engineCapacityMin->IsChecked()) {
 		m_textCtrl_engineCapacityMin->Enable();
@@ -173,7 +96,7 @@ void FVehicleFilterDialog::checkBox_engineCapacityMinChecked(wxCommandEvent& eve
 	}
 }
 
-void FVehicleFilterDialog::checkBox_engineCapacityMaxChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_engineCapacityMaxChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_engineCapacityMax->IsChecked()) {
 		m_textCtrl_engineCapacityMax->Enable();
@@ -183,7 +106,7 @@ void FVehicleFilterDialog::checkBox_engineCapacityMaxChecked(wxCommandEvent& eve
 	}
 }
 
-void FVehicleFilterDialog::checkBox_engineHorsepowerMinChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_engineHorsepowerMinChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_engineHorsepowerMin->IsChecked()) {
 		m_textCtrl_engineHorsepowerMin->Enable();
@@ -193,7 +116,7 @@ void FVehicleFilterDialog::checkBox_engineHorsepowerMinChecked(wxCommandEvent& e
 	}
 }
 
-void FVehicleFilterDialog::checkBox_engineHorsepowerMaxChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_engineHorsepowerMaxChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_engineHorsepowerMax->IsChecked()) {
 		m_textCtrl_engineHorsepowerMax->Enable();
@@ -203,7 +126,7 @@ void FVehicleFilterDialog::checkBox_engineHorsepowerMaxChecked(wxCommandEvent& e
 	}
 }
 
-void FVehicleFilterDialog::checkBox_doorQuantityChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_doorQuantityChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_doorQuantity->IsChecked()) {
 		m_choice_doorQuantity->Enable();
@@ -213,7 +136,7 @@ void FVehicleFilterDialog::checkBox_doorQuantityChecked(wxCommandEvent& event)
 	}
 }
 
-void FVehicleFilterDialog::checkBox_priceMinChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_priceMinChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_priceMin->IsChecked()) {
 		m_textCtrl_priceMin->Enable();
@@ -223,7 +146,7 @@ void FVehicleFilterDialog::checkBox_priceMinChecked(wxCommandEvent& event)
 	}
 }
 
-void FVehicleFilterDialog::checkBox_priceMaxChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_priceMaxChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_priceMax->IsChecked()) {
 		m_textCtrl_priceMax->Enable();
@@ -233,7 +156,7 @@ void FVehicleFilterDialog::checkBox_priceMaxChecked(wxCommandEvent& event)
 	}
 }
 
-void FVehicleFilterDialog::checkBox_mileageMinChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_mileageMinChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_mileageMin->IsChecked()) {
 		m_textCtrl_mileageMin->Enable();
@@ -243,7 +166,7 @@ void FVehicleFilterDialog::checkBox_mileageMinChecked(wxCommandEvent& event)
 	}
 }
 
-void FVehicleFilterDialog::checkBox_mileageMaxChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_mileageMaxChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_mileageMax->IsChecked()) {
 		m_textCtrl_mileageMax->Enable();
@@ -253,7 +176,7 @@ void FVehicleFilterDialog::checkBox_mileageMaxChecked(wxCommandEvent& event)
 	}
 }
 
-void FVehicleFilterDialog::checkBox_colorChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_colorChecked(wxCommandEvent& event)
 {
 	if (m_checkBox_color->IsChecked()) {
 		m_textCtrl_color->Enable();
@@ -263,7 +186,7 @@ void FVehicleFilterDialog::checkBox_colorChecked(wxCommandEvent& event)
 	}
 }
 
-void FVehicleFilterDialog::checkBox_stateChecked(wxCommandEvent& event)
+void CVehicleFilterDialog::checkBox_stateChecked(wxCommandEvent& event)
 {
 	if (checkBox_state->IsChecked()) {
 		m_textCtrl_state->Enable();
@@ -275,119 +198,172 @@ void FVehicleFilterDialog::checkBox_stateChecked(wxCommandEvent& event)
 
 
 
-void FVehicleFilterDialog::OnSearchSubmitVehicleButtonClicked(wxCommandEvent& event)
+void CVehicleFilterDialog::OnSearchSubmitVehicleButtonClicked(wxCommandEvent& event)
 {
-	int selection;
-	long extractedLongMin;
-	long extractedLongMax;
-	double extractedDoubleMin;
-	double extractedDoubleMax;
+	long extractedLong;
+	double extractedDouble;
 
-	std::vector< EVehicleType > vehicleTypes;
-
-	vehicleTypes = getPossibleVehicleTypes();
-	selection = m_choice_vehicleType->GetSelection();
 	if (m_checkBox_vehicleType->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleTypeEqualComparator(vehicleTypes[selection]));
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::EQUAL_TYPE;
+		m_vehicleComparatorDataBundle->vehicleType = m_choice_vehicleType->getVehicleType();
 	}
+	else
+	{
+		*m_vehicleComparatorFlags &= ~VehicleComparatorFlags::EQUAL_TYPE;
+	}
+	
 
 	if (m_checkBox_brand->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleBrandNameEqualComparator(m_textCtrl_brand->GetValue().ToStdString()));
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::EQUAL_BRAND;
+		m_vehicleComparatorDataBundle->brand = m_textCtrl_brand->GetValue().ToStdString();
 	}
+	else
+	{
+		*m_vehicleComparatorFlags &= ~VehicleComparatorFlags::EQUAL_BRAND;
+	}
+	
 
 	if (m_checkBox_model->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleModelNameEqualComparator(m_textCtrl_model->GetValue().ToStdString()));
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::EQUAL_MODEL;		
+		m_vehicleComparatorDataBundle->model = m_textCtrl_model->GetValue().ToStdString();
+	}
+	else
+	{
+		*m_vehicleComparatorFlags &= ~VehicleComparatorFlags::EQUAL_MODEL;
 	}
 
-	std::vector< EVehicleFuel > vehicleFuels;
-	std::vector< EVehicleTransmission > vehicleTransmissions;
-	std::vector< EVehicleWheelDrive > vehicleWheelDrives;
-	std::vector< EVehicleDoorQuantity > vehicleDoorQuantities;
 
-	vehicleFuels = getPossibleVehicleFuels();
-	selection = m_choice_fuelType->GetSelection();
 	if (m_checkBox_fuelType->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleFuelTypeEqualComparator(vehicleFuels[selection]));
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::EQUAL_FUEL;
+		m_vehicleComparatorDataBundle->fuel = m_choice_fuelType->getVehicleFuel();
 	}
+	else
+	{
+		*m_vehicleComparatorFlags &= ~VehicleComparatorFlags::EQUAL_FUEL;
+	}
+	
 
-	vehicleTransmissions = getPossibleVehicleTransmissions();
-	selection = m_choice_transmission->GetSelection();
 	if (m_checkBox_transmission->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleTransmissionTypeEqualComparator(vehicleTransmissions[selection]));
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::EQUAL_TRANSMISSION;
+		m_vehicleComparatorDataBundle->transmission = m_choice_transmission->getVehicleTransmission();
 	}
+	else
+	{
+		*m_vehicleComparatorFlags &= ~VehicleComparatorFlags::EQUAL_TRANSMISSION;
+	}
+	
 
-	vehicleWheelDrives = getPossibleVehicleWheelDrives();
-	selection = m_choice_wheelDrive->GetSelection();
 	if (m_checkBox_wheelDrive->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleWheelDriveTypeEqualComparator(vehicleWheelDrives[selection]));
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::EQUAL_WHEELDRIVE;
+		m_vehicleComparatorDataBundle->wheelDrive = m_choice_wheelDrive->getVehicleWheelDrive();
 	}
 
-	m_textCtrl_engineHorsepowerMin->GetValue().ToLong(&extractedLongMin);
-	m_textCtrl_engineHorsepowerMax->GetValue().ToLong(&extractedLongMax);
-	if (m_checkBox_engineHorsepowerMin->IsChecked() && m_checkBox_engineHorsepowerMax->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleEngineHorsePowerRangeComparator(extractedLongMin, extractedLongMax));
+
+	m_textCtrl_engineHorsepowerMin->GetValue().ToLong(&extractedLong);
+	if (m_checkBox_engineHorsepowerMin->IsChecked()) {
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::MIN_ENGINEHORSEPOWER;
+		m_vehicleComparatorDataBundle->engineHorsepowerMin = ( unsigned int )extractedLong;
 	}
-	else if (m_checkBox_engineHorsepowerMin->IsChecked() && (m_checkBox_engineHorsepowerMax->IsChecked() == false)) {
-		m_vehicleComparators->push_back(getVehicleEngineHorsePowerRangeComparator(extractedLongMin, 10000000));
+	else
+	{
+		*m_vehicleComparatorFlags &= ~VehicleComparatorFlags::MIN_ENGINEHORSEPOWER;
 	}
-	else if ((m_checkBox_engineHorsepowerMin->IsChecked() == false) && m_checkBox_engineHorsepowerMax->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleEngineHorsePowerRangeComparator(0, extractedLongMax));
+	
+	m_textCtrl_engineHorsepowerMax->GetValue().ToLong(&extractedLong);
+	if (m_checkBox_engineHorsepowerMax->IsChecked()) {
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::MAX_ENGINEHORSEPOWER;
+		m_vehicleComparatorDataBundle->engineHorsepowerMax = ( unsigned int )extractedLong;
+	}
+	else
+	{
+		*m_vehicleComparatorFlags &= ~VehicleComparatorFlags::MAX_ENGINEHORSEPOWER;
 	}
 
-	m_textCtrl_engineCapacityMin->GetValue().ToLong(&extractedLongMin);
-	m_textCtrl_engineCapacityMax->GetValue().ToLong(&extractedLongMax);
-	if (m_checkBox_engineCapacityMax->IsChecked() && m_checkBox_engineHorsepowerMin->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleEngineCapacityRangeComparator(extractedLongMin, extractedLongMax));
+
+	m_textCtrl_engineCapacityMin->GetValue().ToLong(&extractedLong);
+	if (m_checkBox_engineCapacityMin->IsChecked()) {
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::MIN_ENGINECAPACITY;
+		m_vehicleComparatorDataBundle->engineCapacityMin = ( unsigned int )extractedLong;
 	}
-	else if (m_checkBox_engineCapacityMax->IsChecked() && (m_checkBox_engineHorsepowerMin->IsChecked() == false)) {
-		m_vehicleComparators->push_back(getVehicleEngineCapacityRangeComparator(extractedLongMin, 10000000));
+	else
+	{
+		*m_vehicleComparatorFlags &= ~VehicleComparatorFlags::MIN_ENGINECAPACITY;
 	}
-	else if ((m_checkBox_engineCapacityMax->IsChecked() == false) && m_checkBox_engineHorsepowerMin->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleEngineCapacityRangeComparator(0, extractedLongMax));
+	
+	m_textCtrl_engineCapacityMax->GetValue().ToLong(&extractedLong);
+	if (m_checkBox_engineCapacityMax->IsChecked()) {
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::MAX_ENGINECAPACITY;
+		m_vehicleComparatorDataBundle->engineCapacityMax = ( unsigned int )extractedLong;
+	}
+	else
+	{
+		*m_vehicleComparatorFlags &= ~VehicleComparatorFlags::MAX_ENGINECAPACITY;
 	}
 
-	vehicleDoorQuantities = getPossibleVehicleDoorQuantities();
-	selection = m_choice_doorQuantity->GetSelection();
+
 	if (m_checkBox_doorQuantity->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleDoorQuantityEqualComparator(vehicleDoorQuantities[selection]));
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::EQUAL_DOORQUANTITY;
+		m_vehicleComparatorDataBundle->doorQuantity = m_choice_doorQuantity->getVehicleDoorQuantity();
+	}
+	else
+	{
+		*m_vehicleComparatorFlags &= ~VehicleComparatorFlags::EQUAL_DOORQUANTITY;
+	}
+	
+
+	m_textCtrl_priceMin->GetValue().ToDouble(&extractedDouble);
+	if (m_checkBox_priceMin->IsChecked()) {
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::MIN_PRICE;
+		m_vehicleComparatorDataBundle->priceMin = ( float )extractedDouble;
+	}
+	else
+	{
+		*m_vehicleComparatorFlags &= ~VehicleComparatorFlags::MIN_PRICE;
+	}
+	
+	m_textCtrl_priceMax->GetValue().ToDouble(&extractedDouble);
+	if (m_checkBox_priceMax->IsChecked()) {
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::MAX_PRICE;
+		m_vehicleComparatorDataBundle->priceMax = ( float )extractedDouble;
+	}
+	else
+	{
+		*m_vehicleComparatorFlags &= ~VehicleComparatorFlags::MAX_PRICE;
 	}
 
-	m_textCtrl_priceMin->GetValue().ToDouble(&extractedDoubleMin);
-	m_textCtrl_priceMax->GetValue().ToDouble(&extractedDoubleMax);
-	if (m_checkBox_priceMin->IsChecked() && m_checkBox_priceMax->IsChecked()) {
-		m_vehicleComparators->push_back(getVehiclePriceRangeComparator(extractedDoubleMin, extractedDoubleMax));
-	}
-	else if (m_checkBox_priceMin->IsChecked() && (m_checkBox_priceMax->IsChecked() == false)) {
-		m_vehicleComparators->push_back(getVehiclePriceRangeComparator(extractedDoubleMin, 10000000));
-	}
-	else if ((m_checkBox_priceMin->IsChecked() == false) && m_checkBox_priceMax->IsChecked()) {
-		m_vehicleComparators->push_back(getVehiclePriceRangeComparator(0, extractedDoubleMax));
-	}
 
-	m_textCtrl_mileageMin->GetValue().ToLong(&extractedLongMin);
-	m_textCtrl_mileageMax->GetValue().ToLong(&extractedLongMax);
-	if (m_checkBox_mileageMin->IsChecked() && m_checkBox_mileageMax->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleMileageRangeComparator(extractedLongMin, extractedLongMax));
+	m_textCtrl_mileageMin->GetValue().ToLong(&extractedLong);
+	if (m_checkBox_mileageMin->IsChecked()) {
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::MIN_MILEAGE;
+		m_vehicleComparatorDataBundle->mileageMin = ( unsigned int )extractedLong;
 	}
-	else if (m_checkBox_mileageMin->IsChecked() && (m_checkBox_mileageMax->IsChecked() == false)) {
-		m_vehicleComparators->push_back(getVehicleMileageRangeComparator(extractedLongMin, 10000000));
+	else
+	{
+		*m_vehicleComparatorFlags &= ~VehicleComparatorFlags::MIN_MILEAGE;
 	}
-	else if ((m_checkBox_mileageMin->IsChecked() == false) && m_checkBox_mileageMax->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleMileageRangeComparator(0, extractedLongMax));
+	
+	m_textCtrl_mileageMax->GetValue().ToLong(&extractedLong);
+	if (m_checkBox_mileageMax->IsChecked()) {
+		*m_vehicleComparatorFlags |= VehicleComparatorFlags::MAX_MILEAGE;
+		m_vehicleComparatorDataBundle->mileageMax = ( unsigned int )extractedLong;
+	}
+	else
+	{
+		*m_vehicleComparatorFlags &= ~VehicleComparatorFlags::MAX_MILEAGE;
 	}
 
 	if (m_checkBox_color->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleColorEqualComparator(m_textCtrl_color->GetValue().ToStdString()));
+		m_vehicleComparatorDataBundle->color = m_textCtrl_color->GetValue().ToStdString();
 	}
 
 	if (checkBox_state->IsChecked()) {
-		m_vehicleComparators->push_back(getVehicleStateEqualComparator(m_textCtrl_state->GetValue().ToStdString()));
+		m_vehicleComparatorDataBundle->state = m_textCtrl_state->GetValue().ToStdString();
 	}
 
 	Close();
 }
 
-void FVehicleFilterDialog::OnCancel(wxCommandEvent& event)
+void CVehicleFilterDialog::OnCancel(wxCommandEvent& event)
 {
 	Close();
 }
