@@ -58,6 +58,8 @@ std::vector< SVehicle* > CKomisFrame::getAllVehicleHandles()
 
 bool CKomisFrame::saveActiveDB( bool forceNewSave ) 
 {
+    size_t pos;
+    std::string extension;
     std::string filePath;
     std::string fileName;
     bool shouldWhipeOutFile;
@@ -70,9 +72,20 @@ bool CKomisFrame::saveActiveDB( bool forceNewSave )
             return false;
         }
 
-        filePath = fileDialog.GetPath().ToStdString() + ".komisdb";
+        filePath = fileDialog.GetPath().ToStdString();
         fileName = fileDialog.GetFilename().ToStdString();
         shouldWhipeOutFile = true;
+
+        pos = filePath.find_last_of( '.' );
+        if( pos != std::string::npos )
+        {
+            extension = filePath.substr( pos + 1 );
+
+            if( extension != "komisdb" )
+            {
+                filePath += "komisdb";
+            }           
+        }
     }
     else
     {
