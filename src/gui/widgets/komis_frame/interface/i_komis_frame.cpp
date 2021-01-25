@@ -102,7 +102,6 @@ IKomisFrame::IKomisFrame( wxWindow* parent, wxWindowID id, const wxString& title
 	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnSaveDatabaseAs ), this, m_menu_file_saveAs->GetId());
 	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnClose ), this, m_menu_file_close->GetId());
 	m_menu_help->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnDisplayAbout ), this, m_menu_help_displayDescription->GetId());
-	m_button1->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IKomisFrame::OnAddVehicleButtonClicked ), NULL, this );
 }
 
 IKomisFrame::~IKomisFrame()

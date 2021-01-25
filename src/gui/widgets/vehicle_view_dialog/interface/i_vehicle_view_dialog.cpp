@@ -17,7 +17,7 @@ IVehicleViewDialog::IVehicleViewDialog( wxWindow* parent, wxWindowID id, const w
 	bSizer3 = new wxBoxSizer( wxVERTICAL );
 
 	wxFlexGridSizer* fgSizer2;
-	fgSizer2 = new wxFlexGridSizer( 1, 2, 0, 0 );
+	fgSizer2 = new wxFlexGridSizer( 14, 2, 0, 0 );
 	fgSizer2->SetFlexibleDirection( wxBOTH );
 	fgSizer2->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 
@@ -113,7 +113,7 @@ IVehicleViewDialog::IVehicleViewDialog( wxWindow* parent, wxWindowID id, const w
 
 	staticText_engineCapacity = new wxStaticText( this, wxID_ANY, wxT("Pojemność silnika"), wxDefaultPosition, wxDefaultSize, 0 );
 	staticText_engineCapacity->Wrap( -1 );
-	staticText_engineCapacity->SetFont( wxFont( 9, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial Unicode MS") ) );
+	staticText_engineCapacity->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxEmptyString ) );
 	staticText_engineCapacity->SetMinSize( wxSize( 150,25 ) );
 
 	fgSizer2->Add( staticText_engineCapacity, 0, wxALL, 5 );
