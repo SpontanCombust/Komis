@@ -118,6 +118,14 @@ class IVehicleFilterDialog : public wxDialog
 
 
 	public:
+		wxString validator_engineCapacityMin;
+		wxString validator_engineCapacityMax;
+		wxString validator_engineHorsepowerMin;
+		wxString validator_engineHorsepowerMax;
+		wxString validator_priceMin;
+		wxString validator_priceMax;
+		wxString validator_milleageMin;
+		wxString validator_milleageMax;
 
 		IVehicleFilterDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Wyszukiwanie pojazdu"), const wxPoint& pos = wxPoint( -1,-1 ), const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~IVehicleFilterDialog();

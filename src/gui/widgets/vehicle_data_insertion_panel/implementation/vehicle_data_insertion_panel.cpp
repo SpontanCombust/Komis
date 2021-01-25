@@ -79,8 +79,13 @@ void CVehicleDataInsertionPanel::setVehicleEngineCapacityInTheTextCtrl( unsigned
 unsigned int CVehicleDataInsertionPanel::getVehicleEngineCapacityFromTheTextCtrl() 
 {
     long tmp;
-    m_textCtrl_engineCapacity->GetValue().ToLong( &tmp );
-	return tmp;
+    if (!m_textCtrl_engineCapacity->IsEmpty()) {
+        m_textCtrl_engineCapacity->GetValue().ToLong(&tmp);
+    }
+    else {
+        tmp = 0;
+    }
+    return tmp;
 }
 
 void CVehicleDataInsertionPanel::setVehicleEngineHorsepowerInTheTextCtrl( unsigned int engineHorsepower ) 
@@ -91,8 +96,13 @@ void CVehicleDataInsertionPanel::setVehicleEngineHorsepowerInTheTextCtrl( unsign
 unsigned int CVehicleDataInsertionPanel::getVehicleEngineHorsepowerFromTheTextCtrl() 
 {
     long tmp;
-    m_textCtrl_engineHorsepower->GetValue().ToLong( &tmp );
-	return tmp;
+    if (!m_textCtrl_engineHorsepower->IsEmpty()) {
+        m_textCtrl_engineHorsepower->GetValue().ToLong(&tmp);
+    }
+    else {
+        tmp = 0;
+    }
+    return tmp;
 }
 
 void CVehicleDataInsertionPanel::setVehicleDoorQuantityInTheChoice( EVehicleDoorQuantity doorQuantity ) 
@@ -113,7 +123,12 @@ void CVehicleDataInsertionPanel::setVehiclePriceInTheTextCtrl( float price )
 float CVehicleDataInsertionPanel::getVehiclePriceFromTheTextCtrl() 
 {
     double tmp;
-    m_textCtrl_price->GetValue().ToDouble( &tmp );
+    if (!m_textCtrl_price->IsEmpty()) {
+        m_textCtrl_price->GetValue().ToDouble(&tmp);
+    }
+    else {
+        tmp = 0.0;
+    }
     return (float)tmp;
 }
 
@@ -125,8 +140,13 @@ void CVehicleDataInsertionPanel::setVehicleMileageInTheTextCtrl( unsigned int mi
 unsigned int CVehicleDataInsertionPanel::getVehicleMileageFromTheTextCtrl() 
 {
     long tmp;
-    m_textCtrl_mileage->GetValue().ToLong( &tmp );
-	return tmp;
+    if (!m_textCtrl_mileage->IsEmpty()) {
+        m_textCtrl_mileage->GetValue().ToLong(&tmp);
+    }
+    else {
+        tmp = 0;
+    }
+    return tmp;
 }
 
 void CVehicleDataInsertionPanel::setVehicleColorInTheTextCtrl( std::string color ) 

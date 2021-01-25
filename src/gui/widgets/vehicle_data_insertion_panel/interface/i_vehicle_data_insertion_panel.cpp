@@ -77,6 +77,8 @@ IVehicleDataInsertionPanel::IVehicleDataInsertionPanel( wxWindow* parent, wxWind
 	fgSizer1->Add( m_staticText_engineCapacity, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textCtrl_engineCapacity = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	m_textCtrl_engineCapacity->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &validator_engineCapacity ) );
+
 	fgSizer1->Add( m_textCtrl_engineCapacity, 0, wxALL|wxEXPAND, 5 );
 
 	m_staticText_engineHorsepower = new wxStaticText( this, wxID_ANY, _("Moc silnika [KM]"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -84,6 +86,8 @@ IVehicleDataInsertionPanel::IVehicleDataInsertionPanel( wxWindow* parent, wxWind
 	fgSizer1->Add( m_staticText_engineHorsepower, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textCtrl_engineHorsepower = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	m_textCtrl_engineHorsepower->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &validator_engineHorsepower ) );
+
 	fgSizer1->Add( m_textCtrl_engineHorsepower, 0, wxALL|wxEXPAND, 5 );
 
 	m_staticText_doorQuantity = new wxStaticText( this, wxID_ANY, _("Ilość drzwi"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -106,6 +110,8 @@ IVehicleDataInsertionPanel::IVehicleDataInsertionPanel( wxWindow* parent, wxWind
 	fgSizer1->Add( m_staticText_price, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textCtrl_price = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrl_price->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &validator_price ) );
+
 	fgSizer1->Add( m_textCtrl_price, 0, wxALL|wxEXPAND, 5 );
 
 	m_staticText_mileage = new wxStaticText( this, wxID_ANY, _("Przebieg [km]"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -113,6 +119,8 @@ IVehicleDataInsertionPanel::IVehicleDataInsertionPanel( wxWindow* parent, wxWind
 	fgSizer1->Add( m_staticText_mileage, 0, wxALL|wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT, 5 );
 
 	m_textCtrl_mileage = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrl_mileage->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &validator_mileage ) );
+
 	fgSizer1->Add( m_textCtrl_mileage, 0, wxALL|wxEXPAND, 5 );
 
 	m_staticText_color = new wxStaticText( this, wxID_ANY, _("Kolor"), wxDefaultPosition, wxDefaultSize, 0 );
