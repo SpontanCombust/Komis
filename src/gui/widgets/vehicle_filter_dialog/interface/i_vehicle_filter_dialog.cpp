@@ -115,6 +115,8 @@ IVehicleFilterDialog::IVehicleFilterDialog( wxWindow* parent, wxWindowID id, con
 	fgSizer1->Add( m_staticText_engineCapacityMin, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textCtrl_engineCapacityMin = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	m_textCtrl_engineCapacityMin->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &validator_engineCapacityMin ) );
+
 	fgSizer1->Add( m_textCtrl_engineCapacityMin, 0, wxALL|wxEXPAND, 5 );
 
 	m_checkBox_engineCapacityMin = new wxCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
@@ -125,6 +127,8 @@ IVehicleFilterDialog::IVehicleFilterDialog( wxWindow* parent, wxWindowID id, con
 	fgSizer1->Add( m_staticText_engineCapacityMax, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT|wxALL, 5 );
 
 	m_textCtrl_engineCapacityMax = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	m_textCtrl_engineCapacityMax->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &validator_engineCapacityMax ) );
+
 	fgSizer1->Add( m_textCtrl_engineCapacityMax, 0, wxALL|wxEXPAND, 5 );
 
 	m_checkBox_engineCapacityMax = new wxCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
@@ -135,6 +139,8 @@ IVehicleFilterDialog::IVehicleFilterDialog( wxWindow* parent, wxWindowID id, con
 	fgSizer1->Add( m_staticText_engineHorsepowerMin, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textCtrl_engineHorsepowerMin = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	m_textCtrl_engineHorsepowerMin->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &validator_engineHorsepowerMin ) );
+
 	fgSizer1->Add( m_textCtrl_engineHorsepowerMin, 0, wxALL|wxEXPAND, 5 );
 
 	m_checkBox_engineHorsepowerMin = new wxCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
@@ -145,6 +151,8 @@ IVehicleFilterDialog::IVehicleFilterDialog( wxWindow* parent, wxWindowID id, con
 	fgSizer1->Add( m_staticText_engineHorsepowerMax, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT|wxALL, 5 );
 
 	m_textCtrl_engineHorsepowerMax = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	m_textCtrl_engineHorsepowerMax->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &validator_engineHorsepowerMax ) );
+
 	fgSizer1->Add( m_textCtrl_engineHorsepowerMax, 0, wxALL|wxEXPAND, 5 );
 
 	m_checkBox_engineHorsepowerMax = new wxCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
