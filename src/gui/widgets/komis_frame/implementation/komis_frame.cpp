@@ -190,12 +190,20 @@ void CKomisFrame::OnImportDatabase(wxCommandEvent& event)
 
 void CKomisFrame::OnSaveDatabase(wxCommandEvent& event) 
 {
-    saveActiveDB();
+    if( saveActiveDB() )
+    {
+        m_didInitialSave = true;
+        m_shouldSaveDB = false;
+    }
 }
 
 void CKomisFrame::OnSaveDatabaseAs(wxCommandEvent& event) 
 {
-    saveActiveDB( true );
+    if( saveActiveDB( true ) )
+    {
+        m_didInitialSave = true;
+        m_shouldSaveDB = false;
+    }
 }
 
 void CKomisFrame::OnClose(wxCommandEvent& event) 
@@ -213,8 +221,6 @@ void CKomisFrame::OnClose(wxCloseEvent& event)
 
 void CKomisFrame::OnAddVehicleButtonClicked(wxCommandEvent& event) 
 {
-    //TODO call setShouldSave
-    //TODO make default values for number fields or limit their scope
     CVehicleCreatorDialog *vehicleCreatorDialog = new CVehicleCreatorDialog( m_vehicleManager, this );
     vehicleCreatorDialog->Show();
 }
