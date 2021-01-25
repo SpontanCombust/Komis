@@ -1,6 +1,7 @@
 #ifndef __VEHICLE_BASIC_DATA_H__
 #define __VEHICLE_BASIC_DATA_H__
 
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -22,5 +23,8 @@ struct SVehicleBasicData
     std::string brandName;
     std::string modelName;
 };
+
+void writeVehicleBasicDataToStream( std::ostream& out, const SVehicleBasicData& data );
+bool readVehicleBasicDataFromStream( std::istream& in, SVehicleBasicData& data );
 
 #endif // __VEHICLE_BASIC_DATA_H__

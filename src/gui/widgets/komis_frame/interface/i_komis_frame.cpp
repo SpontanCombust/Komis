@@ -15,16 +15,36 @@ IKomisFrame::IKomisFrame( wxWindow* parent, wxWindowID id, const wxString& title
 
 	m_menubar = new wxMenuBar( 0 );
 	m_menu_file = new wxMenu();
-	wxMenuItem* m_menu_file_menuItem_close;
-	m_menu_file_menuItem_close = new wxMenuItem( m_menu_file, wxID_ANY, wxString( _("Zakończ") ) , wxEmptyString, wxITEM_NORMAL );
-	m_menu_file->Append( m_menu_file_menuItem_close );
+	wxMenuItem* m_menu_file_new;
+	m_menu_file_new = new wxMenuItem( m_menu_file, wxID_ANY, wxString( _("Nowy...") ) + wxT('\t') + wxT("CTRL+n"), wxEmptyString, wxITEM_NORMAL );
+	m_menu_file->Append( m_menu_file_new );
+
+	wxMenuItem* m_menu_file_open;
+	m_menu_file_open = new wxMenuItem( m_menu_file, wxID_ANY, wxString( _("Otwórz...") ) + wxT('\t') + wxT("CTRL+o"), wxEmptyString, wxITEM_NORMAL );
+	m_menu_file->Append( m_menu_file_open );
+
+	wxMenuItem* m_menu_file_import;
+	m_menu_file_import = new wxMenuItem( m_menu_file, wxID_ANY, wxString( _("Importuj...") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu_file->Append( m_menu_file_import );
+
+	wxMenuItem* m_menu_file_save;
+	m_menu_file_save = new wxMenuItem( m_menu_file, wxID_ANY, wxString( _("Zapisz...") ) + wxT('\t') + wxT("CTRL+s"), wxEmptyString, wxITEM_NORMAL );
+	m_menu_file->Append( m_menu_file_save );
+
+	wxMenuItem* m_menu_file_saveAs;
+	m_menu_file_saveAs = new wxMenuItem( m_menu_file, wxID_ANY, wxString( _("Zapisz jako...") ) + wxT('\t') + wxT("CTRL+SHIFT+s"), wxEmptyString, wxITEM_NORMAL );
+	m_menu_file->Append( m_menu_file_saveAs );
+
+	wxMenuItem* m_menu_file_close;
+	m_menu_file_close = new wxMenuItem( m_menu_file, wxID_ANY, wxString( _("Zakończ") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu_file->Append( m_menu_file_close );
 
 	m_menubar->Append( m_menu_file, _("Plik") );
 
 	m_menu_help = new wxMenu();
-	wxMenuItem* m_menu_help_menuItem_displayDescription;
-	m_menu_help_menuItem_displayDescription = new wxMenuItem( m_menu_help, wxID_ANY, wxString( _("O programie Komis...") ) , wxEmptyString, wxITEM_NORMAL );
-	m_menu_help->Append( m_menu_help_menuItem_displayDescription );
+	wxMenuItem* m_menu_help_displayDescription;
+	m_menu_help_displayDescription = new wxMenuItem( m_menu_help, wxID_ANY, wxString( _("O programie Komis...") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu_help->Append( m_menu_help_displayDescription );
 
 	m_menubar->Append( m_menu_help, _("Pomoc") );
 
@@ -74,12 +94,19 @@ IKomisFrame::IKomisFrame( wxWindow* parent, wxWindowID id, const wxString& title
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnClose ), this, m_menu_file_menuItem_close->GetId());
-	m_menu_help->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnDisplayAbout ), this, m_menu_help_menuItem_displayDescription->GetId());
+	this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( IKomisFrame::OnClose ) );
+	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnNewDatabase ), this, m_menu_file_new->GetId());
+	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnOpenDatabase ), this, m_menu_file_open->GetId());
+	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnImportDatabase ), this, m_menu_file_import->GetId());
+	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnSaveDatabase ), this, m_menu_file_save->GetId());
+	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnSaveDatabaseAs ), this, m_menu_file_saveAs->GetId());
+	m_menu_file->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnClose ), this, m_menu_file_close->GetId());
+	m_menu_help->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( IKomisFrame::OnDisplayAbout ), this, m_menu_help_displayDescription->GetId());
+	m_button1->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IKomisFrame::OnAddVehicleButtonClicked ), NULL, this );
 }
 
 IKomisFrame::~IKomisFrame()
 {
 	// Disconnect Events
-
+	this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( IKomisFrame::OnClose ) );
 }

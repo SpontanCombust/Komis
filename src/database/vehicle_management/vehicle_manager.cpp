@@ -54,6 +54,11 @@ void CVehicleManager::removeVehicleByID(uint32_t id)
         throw "No vehicle with that ID found!";
 }
 
+void CVehicleManager::removeAllVehicles() 
+{
+    m_vehicleMap.clear();
+}
+
 
 
 std::vector< uint32_t > CVehicleManager::getAllVehicleIDs() 

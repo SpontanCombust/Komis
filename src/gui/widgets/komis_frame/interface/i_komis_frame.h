@@ -48,6 +48,12 @@ class IKomisFrame : public wxFrame
 		CVehicleBrowsePanel* m_notebook_pageVehicles_panel;
 
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnClose( wxCloseEvent& event ) { event.Skip(); }
+		virtual void OnNewDatabase( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnOpenDatabase( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnImportDatabase( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnSaveDatabase( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnSaveDatabaseAs( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClose( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnDisplayAbout( wxCommandEvent& event ) { event.Skip(); }
 

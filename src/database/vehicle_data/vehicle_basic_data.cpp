@@ -24,3 +24,38 @@ const std::vector< EVehicleType > getPossibleVehicleTypes()
         EVehicleType::TRUCK
     };
 }
+
+
+
+void writeVehicleBasicDataToStream( std::ostream& out, const SVehicleBasicData& data ) 
+{
+    out << static_cast<int>( data.vehicleType ) << '\0'
+        << data.brandName << '\0'
+        << data.modelName << '\0';
+}
+
+bool readVehicleBasicDataFromStream( std::istream& in, SVehicleBasicData& data ) 
+{
+    int tmpInt;
+    std::string line;
+
+    try
+    {
+        std::getline( in, line, '\0' );
+        tmpInt = std::stoi( line );
+        data.vehicleType = static_cast< EVehicleType >( tmpInt );
+
+        std::getline( in, line, '\0' );
+        data.brandName = line;
+
+        std::getline( in, line, '\0' );
+        data.modelName = line;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return false;
+    }
+    
+    return true;
+}

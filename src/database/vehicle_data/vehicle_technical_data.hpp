@@ -1,6 +1,7 @@
 #ifndef __VEHICLE_TECHNICAL_DATA_H__
 #define __VEHICLE_TECHNICAL_DATA_H__
 
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -58,5 +59,8 @@ struct SVehicleTechnicalData
     unsigned int engineCapacityL;
     EVehicleDoorQuantity doorQuantity;
 };
+
+void writeVehicleTechnicalDataToStream( std::ostream& out, const SVehicleTechnicalData& data );
+bool readVehicleTechnicalDataFromStream( std::istream& in, SVehicleTechnicalData& data );
 
 #endif // __VEHICLE_TECHNICAL_DATA_H__
