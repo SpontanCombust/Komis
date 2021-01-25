@@ -11,6 +11,8 @@
 
 IVehicleDataInsertionPanel::IVehicleDataInsertionPanel( wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, long style, const wxString& name ) : wxPanel( parent, id, pos, size, style, name )
 {
+	wxTextValidator number_validator(wxFILTER_NUMERIC);
+
 	wxFlexGridSizer* fgSizer1;
 	fgSizer1 = new wxFlexGridSizer( 0, 2, 0, 0 );
 	fgSizer1->SetFlexibleDirection( wxBOTH );
@@ -76,14 +78,14 @@ IVehicleDataInsertionPanel::IVehicleDataInsertionPanel( wxWindow* parent, wxWind
 	m_staticText_engineCapacity->Wrap( -1 );
 	fgSizer1->Add( m_staticText_engineCapacity, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl_engineCapacity = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	m_textCtrl_engineCapacity = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0, number_validator);
 	fgSizer1->Add( m_textCtrl_engineCapacity, 0, wxALL|wxEXPAND, 5 );
 
 	m_staticText_engineHorsepower = new wxStaticText( this, wxID_ANY, _("Moc silnika [KM]"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText_engineHorsepower->Wrap( -1 );
 	fgSizer1->Add( m_staticText_engineHorsepower, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl_engineHorsepower = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	m_textCtrl_engineHorsepower = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0, number_validator);
 	fgSizer1->Add( m_textCtrl_engineHorsepower, 0, wxALL|wxEXPAND, 5 );
 
 	m_staticText_doorQuantity = new wxStaticText( this, wxID_ANY, _("Ilość drzwi"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -105,14 +107,14 @@ IVehicleDataInsertionPanel::IVehicleDataInsertionPanel( wxWindow* parent, wxWind
 	m_staticText_price->Wrap( -1 );
 	fgSizer1->Add( m_staticText_price, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl_price = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrl_price = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, number_validator);
 	fgSizer1->Add( m_textCtrl_price, 0, wxALL|wxEXPAND, 5 );
 
 	m_staticText_mileage = new wxStaticText( this, wxID_ANY, _("Przebieg [km]"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText_mileage->Wrap( -1 );
 	fgSizer1->Add( m_staticText_mileage, 0, wxALL|wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT, 5 );
 
-	m_textCtrl_mileage = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrl_mileage = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, number_validator);
 	fgSizer1->Add( m_textCtrl_mileage, 0, wxALL|wxEXPAND, 5 );
 
 	m_staticText_color = new wxStaticText( this, wxID_ANY, _("Kolor"), wxDefaultPosition, wxDefaultSize, 0 );
