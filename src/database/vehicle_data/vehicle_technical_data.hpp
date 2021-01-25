@@ -60,8 +60,7 @@ struct SVehicleTechnicalData
     EVehicleDoorQuantity doorQuantity;
 };
 
-std::ostream& operator<<( std::ostream& out, const SVehicleTechnicalData& vehicleTechnicalData );
-std::istream& operator>>( std::istream& in, SVehicleTechnicalData& vehicleTechnicalData ); 
-
+void writeVehicleTechnicalDataToStream( std::ostream& out, const SVehicleTechnicalData& data );
+bool readVehicleTechnicalDataFromStream( std::istream& in, SVehicleTechnicalData& data );
 
 #endif // __VEHICLE_TECHNICAL_DATA_H__

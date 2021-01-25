@@ -7,7 +7,7 @@ bool writeVehiclesToFile( const char *path, std::vector< SVehicle* > vehicleHand
     if( shouldWhipeFile )
     {
         output.open( path, std::ios::out | std::ios::trunc );
-        output << KOMIS_WATERMARK_VEHICLE << '\n';
+        output << KOMIS_WATERMARK_VEHICLE << '\0';
     }
     else
     {
@@ -21,9 +21,10 @@ bool writeVehiclesToFile( const char *path, std::vector< SVehicle* > vehicleHand
 
     for( SVehicle *handle : vehicleHandles )
     {
-        output << handle->basicData;
-        output << handle->technicalData;
-        output << handle->specimenData;
+        output << '\n';
+        writeVehicleBasicDataToStream( output, handle->basicData );
+        writeVehicleTechnicalDataToStream( output, handle->technicalData );
+        writeVehicleSpecimenDataToStream( output, handle->specimenData );
     }
 
     output.close();
@@ -34,6 +35,7 @@ bool readVehiclesFromFile( const char *path, std::vector< SVehicle > *vehicleVec
 {
     std::ifstream input;
     std::string fileWatermark;
+    std::string newObjectMarker;
     SVehicle readVehicle;
 
     input.open( path, std::ios::in );
@@ -44,18 +46,27 @@ bool readVehiclesFromFile( const char *path, std::vector< SVehicle > *vehicleVec
 
     vehicleVecPtr->clear();
 
-    input >> fileWatermark;
+    std::getline( input, fileWatermark, '\0' );
     if( fileWatermark != KOMIS_WATERMARK_VEHICLE )
     {
         input.close();
         return false;
     }
 
-    while( !input.eof() )
+    while( !std::getline( input, newObjectMarker, '\n' ).eof() )
     {
-        input >> readVehicle.basicData;
-        input >> readVehicle.technicalData;
-        input >> readVehicle.specimenData;
+        if( !readVehicleBasicDataFromStream( input, readVehicle.basicData) )
+        {
+            return false;
+        }
+        if( !readVehicleTechnicalDataFromStream( input, readVehicle.technicalData ) )
+        {
+            return false;
+        }
+        if( !readVehicleSpecimenDataFromStream( input, readVehicle.specimenData ) )
+        {
+            return false;
+        }
 
         vehicleVecPtr->push_back( readVehicle );
     }

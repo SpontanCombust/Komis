@@ -89,32 +89,54 @@ const std::vector< EVehicleDoorQuantity > getPossibleVehicleDoorQuantities()
     };
 }
 
-std::ostream& operator<<( std::ostream& out, const SVehicleTechnicalData& vehicleTechnicalData ) 
-{
-    out << static_cast<int>( vehicleTechnicalData.fuelType ) << '\n'
-        << static_cast<int>( vehicleTechnicalData.transmissionType ) << '\n'
-        << static_cast<int>( vehicleTechnicalData.wheelDriveType ) << '\n'
-        << vehicleTechnicalData.engineHorsepower << '\n'
-        << vehicleTechnicalData.engineCapacityL << '\n'
-        << static_cast<int>( vehicleTechnicalData.doorQuantity ) << std::endl;
 
-    return out;
+
+void writeVehicleTechnicalDataToStream( std::ostream& out, const SVehicleTechnicalData& data ) 
+{
+    out << static_cast<int>( data.fuelType ) << '\0'
+        << static_cast<int>( data.transmissionType ) << '\0'
+        << static_cast<int>( data.wheelDriveType ) << '\0'
+        << data.engineHorsepower << '\0'
+        << data.engineCapacityL << '\0'
+        << static_cast<int>( data.doorQuantity ) << '\0';
 }
 
-std::istream& operator>>( std::istream& in, SVehicleTechnicalData& vehicleTechnicalData ) 
+bool readVehicleTechnicalDataFromStream( std::istream& in, SVehicleTechnicalData& data ) 
 {
-    int tmpEnumInt;
+    int tmpInt;
+    std::string line;
 
-    in  >> tmpEnumInt;
-    vehicleTechnicalData.fuelType = static_cast<EVehicleFuel>( tmpEnumInt );
-    in  >> tmpEnumInt;
-    vehicleTechnicalData.transmissionType = static_cast<EVehicleTransmission>( tmpEnumInt );
-    in  >> tmpEnumInt;
-    vehicleTechnicalData.wheelDriveType = static_cast<EVehicleWheelDrive>( tmpEnumInt );
-    in  >> vehicleTechnicalData.engineHorsepower
-        >> vehicleTechnicalData.engineCapacityL
-        >> tmpEnumInt;
-    vehicleTechnicalData.doorQuantity = static_cast<EVehicleDoorQuantity>( tmpEnumInt );
+    try
+    {
+        std::getline( in, line, '\0' );
+        tmpInt = std::stoi( line );
+        data.fuelType = static_cast< EVehicleFuel >( tmpInt );
 
-    return in;
+        std::getline( in, line, '\0' );
+        tmpInt = std::stoi( line );
+        data.transmissionType = static_cast< EVehicleTransmission >( tmpInt );
+
+        std::getline( in, line, '\0' );
+        tmpInt = std::stoi( line );
+        data.wheelDriveType = static_cast< EVehicleWheelDrive >( tmpInt );
+
+        std::getline( in, line, '\0' );
+        tmpInt = std::stoi( line );
+        data.engineHorsepower = ( unsigned int )tmpInt;
+
+        std::getline( in, line, '\0' );
+        tmpInt = std::stoi( line );
+        data.engineCapacityL = ( unsigned int )tmpInt;
+
+        std::getline( in, line, '\0' );
+        tmpInt = std::stoi( line );
+        data.doorQuantity = static_cast< EVehicleDoorQuantity >( tmpInt );
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return false;
+    }
+
+    return true;
 }

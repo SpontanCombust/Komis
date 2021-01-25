@@ -24,7 +24,7 @@ struct SVehicleBasicData
     std::string modelName;
 };
 
-std::ostream& operator<<( std::ostream& out, const SVehicleBasicData& vehicleBasicData );
-std::istream& operator>>( std::istream& in, SVehicleBasicData& vehicleBasicData );
+void writeVehicleBasicDataToStream( std::ostream& out, const SVehicleBasicData& data );
+bool readVehicleBasicDataFromStream( std::istream& in, SVehicleBasicData& data );
 
 #endif // __VEHICLE_BASIC_DATA_H__

@@ -13,7 +13,7 @@ struct SVehicleSpecimenData
     std::string additionalInformation;
 };
 
-std::ostream& operator<<( std::ostream& out, const SVehicleSpecimenData& vehicleSpecimenData );
-std::istream& operator>>( std::istream& in, SVehicleSpecimenData& vehicleSpecimenData );
+void writeVehicleSpecimenDataToStream( std::ostream& out, const SVehicleSpecimenData& data );
+bool readVehicleSpecimenDataFromStream( std::istream& in, SVehicleSpecimenData& data );
 
 #endif // __VEHICLE_SPECIMEN_DATA_H__

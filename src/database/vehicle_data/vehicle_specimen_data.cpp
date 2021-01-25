@@ -1,24 +1,45 @@
 #include "vehicle_specimen_data.hpp"
 
-std::ostream& operator<<( std::ostream& out, const SVehicleSpecimenData& vehicleSpecimenData ) 
+void writeVehicleSpecimenDataToStream( std::ostream& out, const SVehicleSpecimenData& data ) 
 {
-    out << vehicleSpecimenData.price << '\n'
-        << vehicleSpecimenData.mileageKm << '\n'
-        << vehicleSpecimenData.color << '\n'
-        << vehicleSpecimenData.state << '\n'
-        << vehicleSpecimenData.additionalInformation << std::endl;
-
-    return out;
+    out << data.price << '\0'
+        << data.mileageKm << '\0'
+        << data.color << '\0'
+        << data.state << '\0'
+        << data.additionalInformation << '\0';
 }
 
-std::istream& operator>>( std::istream& in, SVehicleSpecimenData& vehicleSpecimenData ) 
+bool readVehicleSpecimenDataFromStream( std::istream& in, SVehicleSpecimenData& data ) 
 {
-    in  >> vehicleSpecimenData.price
-        >> vehicleSpecimenData.mileageKm
-        >> vehicleSpecimenData.color
-        >> vehicleSpecimenData.state
-        >> vehicleSpecimenData.additionalInformation;
+    int tmpInt;
+    float tmpFloat;
+    std::string line;
 
-    return in;
+    try
+    {
+        std::getline( in, line, '\0' );
+        tmpFloat = std::stof( line );
+        data.price = tmpFloat;
+
+        std::getline( in, line, '\0' );
+        tmpInt = std::stoi( line );
+        data.mileageKm = ( unsigned int )tmpInt;
+
+        std::getline( in, line, '\0' );
+        data.color = line;
+
+        std::getline( in, line, '\0' );
+        data.state = line;
+
+        std::getline( in, line, '\0' );
+        data.additionalInformation = line;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return false;
+    }
+
+    return true;
 }
 

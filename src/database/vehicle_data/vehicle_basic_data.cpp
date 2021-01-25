@@ -25,24 +25,37 @@ const std::vector< EVehicleType > getPossibleVehicleTypes()
     };
 }
 
-std::ostream& operator<<( std::ostream& out, const SVehicleBasicData& vehicleBasicData ) 
-{
-    out << static_cast<int>( vehicleBasicData.vehicleType ) << '\n'
-        << vehicleBasicData.brandName << '\n'
-        << vehicleBasicData.modelName << std::endl;
 
-    return out;
+
+void writeVehicleBasicDataToStream( std::ostream& out, const SVehicleBasicData& data ) 
+{
+    out << static_cast<int>( data.vehicleType ) << '\0'
+        << data.brandName << '\0'
+        << data.modelName << '\0';
 }
 
-std::istream& operator>>( std::istream& in, SVehicleBasicData& vehicleBasicData ) 
+bool readVehicleBasicDataFromStream( std::istream& in, SVehicleBasicData& data ) 
 {
-    int vehTypeInt;
+    int tmpInt;
+    std::string line;
 
-    in  >> vehTypeInt
-        >> vehicleBasicData.brandName
-        >> vehicleBasicData.modelName;
+    try
+    {
+        std::getline( in, line, '\0' );
+        tmpInt = std::stoi( line );
+        data.vehicleType = static_cast< EVehicleType >( tmpInt );
 
-    vehicleBasicData.vehicleType = static_cast< EVehicleType >( vehTypeInt );
+        std::getline( in, line, '\0' );
+        data.brandName = line;
 
-    return in;
+        std::getline( in, line, '\0' );
+        data.modelName = line;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return false;
+    }
+    
+    return true;
 }
