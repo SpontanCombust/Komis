@@ -69,6 +69,10 @@ public:
      *  If the active DB hasn't been saved, ask to do it.
      */
     virtual void OnClose( wxCloseEvent& event ) override;
+
+    /** Displays information about the application
+     */
+    void OnDisplayAbout( wxCommandEvent& event ) override;
 };
 
 #endif // __KOMIS_FRAME_H__

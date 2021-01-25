@@ -218,3 +218,13 @@ void CKomisFrame::OnClose(wxCloseEvent& event)
         event.Skip();
     }
 }
+
+void CKomisFrame::OnDisplayAbout(wxCommandEvent& event) 
+{
+    std::string msg =   
+"Program pomagający w pracy w komisie samochodowym.\n\
+Program potrafi przechowywać informacje o przetrzymywanych w nim pojazdach.\n\n\
+@2020 Przemysław Cedro, Jakub Celuch | All Right Reserved";
+
+    wxMessageBox( msg, _("O programie Komis"), wxOK | wxICON_QUESTION, this, -1, -1 );
+}
