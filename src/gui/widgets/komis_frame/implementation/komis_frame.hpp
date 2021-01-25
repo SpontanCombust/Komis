@@ -69,9 +69,6 @@ public:
      *  If the active DB hasn't been saved, ask to do it.
      */
     virtual void OnClose( wxCloseEvent& event ) override;
-    
-    // temporary placeholder
-    virtual void OnAddVehicleButtonClicked( wxCommandEvent& event ) override; 
 };
 
 #endif // __KOMIS_FRAME_H__

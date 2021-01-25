@@ -1,6 +1,7 @@
 ﻿#include "vehicle_browse_panel.hpp"
 
 #include "gui/widgets/vehicle_filter_dialog/implementation/vehicle_filter_dialog.h"
+#include "gui/widgets/vehicle_creator_dialog/implementation/vehicle_creator_dialog.hpp"
 
 #include <wx/msgdlg.h>
 
@@ -9,6 +10,7 @@ CVehicleBrowsePanel::CVehicleBrowsePanel( wxWindow* parent )
 IVehicleBrowsePanel( parent )
 {
     m_databaseHandle = nullptr;
+    m_vehicleComparatorFlags = 0;
 }
 
 CVehicleBrowsePanel::CVehicleBrowsePanel(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, long style, const wxString& name) 
@@ -16,6 +18,7 @@ CVehicleBrowsePanel::CVehicleBrowsePanel(wxWindow* parent, wxWindowID id, const 
 IVehicleBrowsePanel( parent, id, pos, size, style, name )
 {
     m_databaseHandle = nullptr;
+    m_vehicleComparatorFlags = 0;
 }
 
 CVehicleBrowsePanel::~CVehicleBrowsePanel() 
@@ -23,6 +26,10 @@ CVehicleBrowsePanel::~CVehicleBrowsePanel()
 
 }
 
+void CVehicleBrowsePanel::setDatabaseHandle( CVehicleManager *database ) 
+{
+    m_databaseHandle = database;
+}
 
 
 void CVehicleBrowsePanel::removeVehiclesIfNeeded() 
@@ -128,7 +135,10 @@ void CVehicleBrowsePanel::setupListItems()
 
 void CVehicleBrowsePanel::resetDatabaseCache() 
 {
-    m_cachedVehicleIDs = m_databaseHandle->queryVehicleIDs( m_vehicleComparators );
+    std::vector< VehicleComparator > comparators;
+
+    comparators = getVehicleComparatorsVectorFromDataBundle( m_comparatorDataBundle, m_vehicleComparatorFlags );
+    m_cachedVehicleIDs = m_databaseHandle->queryVehicleIDs( comparators );
 
     m_currentTopmostVehicleIDIterator = m_cachedVehicleIDs.begin();
 }
@@ -195,13 +205,17 @@ void CVehicleBrowsePanel::OnRefreshButtonClicked(wxCommandEvent& event)
 
 void CVehicleBrowsePanel::OnSetFiltersButtonClicked(wxCommandEvent& event) 
 {
-    FVehicleFilterDialog *filterDialog = new FVehicleFilterDialog( this, &m_vehicleComparators );
+    CVehicleFilterDialog *filterDialog = new CVehicleFilterDialog( this, &m_comparatorDataBundle, &m_vehicleComparatorFlags );
     filterDialog->Show();
 }
 
-
-
-void CVehicleBrowsePanel::setDatabaseHandle( CVehicleManager *database ) 
+void CVehicleBrowsePanel::OnResetFiletrsButtonClick(wxCommandEvent& event) 
 {
-    m_databaseHandle = database;
+    m_vehicleComparatorFlags = 0;
+}
+
+void CVehicleBrowsePanel::OnAddVehicleButtonClick(wxCommandEvent& event) 
+{
+    CVehicleCreatorDialog *vehicleCreator = new CVehicleCreatorDialog( m_databaseHandle, this );
+    vehicleCreator->Show();
 }

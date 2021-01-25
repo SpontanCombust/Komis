@@ -58,12 +58,11 @@ IKomisFrame::IKomisFrame( wxWindow* parent, wxWindowID id, const wxString& title
 	wxBoxSizer* bSizer3;
 	bSizer3 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText1 = new wxStaticText( m_notebook_pageGeneral, wxID_ANY, _("Placeholder to be deleted later"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText1 = new wxStaticText( m_notebook_pageGeneral, wxID_ANY, _("Dodać tu jakieś przywitanie"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText1->Wrap( -1 );
-	bSizer3->Add( m_staticText1, 0, wxALL, 5 );
+	m_staticText1->SetFont( wxFont( 30, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxEmptyString ) );
 
-	m_button1 = new wxButton( m_notebook_pageGeneral, wxID_ANY, _("Dodaj pojazd"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer3->Add( m_button1, 0, wxALL|wxEXPAND, 5 );
+	bSizer3->Add( m_staticText1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 	m_notebook_pageGeneral_panel = new wxPanel( m_notebook_pageGeneral, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	bSizer3->Add( m_notebook_pageGeneral_panel, 1, wxEXPAND | wxALL, 5 );
@@ -110,6 +109,4 @@ IKomisFrame::~IKomisFrame()
 {
 	// Disconnect Events
 	this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( IKomisFrame::OnClose ) );
-	m_button1->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IKomisFrame::OnAddVehicleButtonClicked ), NULL, this );
-
 }

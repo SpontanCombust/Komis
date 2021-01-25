@@ -218,9 +218,3 @@ void CKomisFrame::OnClose(wxCloseEvent& event)
         event.Skip();
     }
 }
-
-void CKomisFrame::OnAddVehicleButtonClicked(wxCommandEvent& event) 
-{
-    CVehicleCreatorDialog *vehicleCreatorDialog = new CVehicleCreatorDialog( m_vehicleManager, this );
-    vehicleCreatorDialog->Show();
-}

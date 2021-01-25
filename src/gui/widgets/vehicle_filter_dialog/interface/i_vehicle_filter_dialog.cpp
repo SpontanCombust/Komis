@@ -38,7 +38,7 @@ IVehicleFilterDialog::IVehicleFilterDialog( wxWindow* parent, wxWindowID id, con
 	fgSizer1->Add( m_staticText_vehicleType, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT|wxALL, 5 );
 
 	wxArrayString m_choice_vehicleTypeChoices;
-	m_choice_vehicleType = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 280,-1 ), m_choice_vehicleTypeChoices, 0 );
+	m_choice_vehicleType = new CVehicleTypeChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 280,-1 ), m_choice_vehicleTypeChoices, 0 );
 	m_choice_vehicleType->SetSelection( 0 );
 	fgSizer1->Add( m_choice_vehicleType, 0, wxALL, 5 );
 
@@ -79,7 +79,7 @@ IVehicleFilterDialog::IVehicleFilterDialog( wxWindow* parent, wxWindowID id, con
 	fgSizer1->Add( m_staticText_fuelType, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
 	wxArrayString m_choice_fuelTypeChoices;
-	m_choice_fuelType = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice_fuelTypeChoices, 0 );
+	m_choice_fuelType = new CVehicleFuelChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice_fuelTypeChoices, 0 );
 	m_choice_fuelType->SetSelection( 0 );
 	fgSizer1->Add( m_choice_fuelType, 0, wxALL|wxEXPAND, 5 );
 
@@ -91,7 +91,7 @@ IVehicleFilterDialog::IVehicleFilterDialog( wxWindow* parent, wxWindowID id, con
 	fgSizer1->Add( m_staticText_transmission, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
 	wxArrayString m_choice_transmissionChoices;
-	m_choice_transmission = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), m_choice_transmissionChoices, 0 );
+	m_choice_transmission = new CVehicleTransmissionChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), m_choice_transmissionChoices, 0 );
 	m_choice_transmission->SetSelection( 0 );
 	fgSizer1->Add( m_choice_transmission, 0, wxALL|wxEXPAND, 5 );
 
@@ -103,7 +103,7 @@ IVehicleFilterDialog::IVehicleFilterDialog( wxWindow* parent, wxWindowID id, con
 	fgSizer1->Add( m_staticText_wheelDrive, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
 	wxArrayString m_choice_wheelDriveChoices;
-	m_choice_wheelDrive = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), m_choice_wheelDriveChoices, 0 );
+	m_choice_wheelDrive = new CVehicleWheelDriveChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), m_choice_wheelDriveChoices, 0 );
 	m_choice_wheelDrive->SetSelection( 1 );
 	fgSizer1->Add( m_choice_wheelDrive, 0, wxALL|wxEXPAND, 5 );
 
@@ -155,7 +155,7 @@ IVehicleFilterDialog::IVehicleFilterDialog( wxWindow* parent, wxWindowID id, con
 	fgSizer1->Add( m_staticText_doorQuantity, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
 	wxArrayString m_choice_doorQuantityChoices;
-	m_choice_doorQuantity = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), m_choice_doorQuantityChoices, 0 );
+	m_choice_doorQuantity = new CVehicleDoorQuantityChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), m_choice_doorQuantityChoices, 0 );
 	m_choice_doorQuantity->SetSelection( 0 );
 	fgSizer1->Add( m_choice_doorQuantity, 0, wxALL|wxEXPAND, 5 );
 
@@ -232,7 +232,7 @@ IVehicleFilterDialog::IVehicleFilterDialog( wxWindow* parent, wxWindowID id, con
 	fgSizer1->Add( checkBox_state, 0, wxALL, 5 );
 
 
-	bSizer1->Add( fgSizer1, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer1->Add( fgSizer1, 10, wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer2;
 	bSizer2 = new wxBoxSizer( wxHORIZONTAL );
@@ -252,6 +252,7 @@ IVehicleFilterDialog::IVehicleFilterDialog( wxWindow* parent, wxWindowID id, con
 
 	this->SetSizer( bSizer1 );
 	this->Layout();
+	bSizer1->Fit( this );
 
 	this->Centre( wxBOTH );
 

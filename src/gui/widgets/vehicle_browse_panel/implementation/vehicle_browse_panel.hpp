@@ -16,7 +16,8 @@ class CVehicleBrowsePanel : public IVehicleBrowsePanel
 {
 	protected:
 		CVehicleManager *m_databaseHandle;
-		std::vector< VehicleComparator > m_vehicleComparators;
+		SVehicleComparatorDataBundle m_comparatorDataBundle;
+		int m_vehicleComparatorFlags;
 
 		std::vector< uint32_t > m_cachedVehicleIDs;
 		std::vector< uint32_t >::iterator m_currentTopmostVehicleIDIterator;
@@ -35,6 +36,8 @@ class CVehicleBrowsePanel : public IVehicleBrowsePanel
 		void OnNextPageButtonClick( wxCommandEvent& event ) override;
 		void OnRefreshButtonClicked( wxCommandEvent& event ) override;
 		void OnSetFiltersButtonClicked( wxCommandEvent& event ) override;
+		void OnResetFiletrsButtonClick( wxCommandEvent& event ) override;
+		void OnAddVehicleButtonClick( wxCommandEvent& event ) override;
 		
 	public:
 		/** Constructor */
