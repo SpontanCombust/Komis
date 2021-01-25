@@ -32,16 +32,16 @@ void CScrolledVehicleListItemPanel::OnEditVehicleButtonClicked(wxCommandEvent& e
     vehicleEditDialog->Show();
 }
 
-void CScrolledVehicleListItemPanel::OnDeleteVehicleButtonClicked(wxCommandEvent& event) 
+void CScrolledVehicleListItemPanel::OnSellVehicleButtonClicked(wxCommandEvent& event) 
 {
-    int answer = wxMessageBox( "Na pewno usunąć pojazd?", "Usuwanie pojazdu", wxYES_NO | wxCANCEL, this );
+    int answer = wxMessageBox( "Na pewno sprzedać pojazd?", "Sprzedawanie pojazdu", wxYES_NO | wxCANCEL, this );
 
     if( answer == wxYES )
     {
         m_shouldVehicleBeDeleted = true;
         clearAllStaticTexts();
         disableAllButtons();
-        setVehicleDeletedText();
+        setVehicleSoldText();
     }
 }
 
@@ -149,19 +149,19 @@ void CScrolledVehicleListItemPanel::disableAllButtons()
 {
     m_button_viewVehicle->Disable();
     m_button_editVehicle->Disable();
-    m_button_deleteVehicle->Disable();
+    m_button_sellVehicle->Disable();
 }
 
 void CScrolledVehicleListItemPanel::enableAllButtons() 
 {
     m_button_viewVehicle->Enable();
     m_button_editVehicle->Enable();
-    m_button_deleteVehicle->Enable();
+    m_button_sellVehicle->Enable();
 }
 
 
 
-void CScrolledVehicleListItemPanel::setVehicleDeletedText() 
+void CScrolledVehicleListItemPanel::setVehicleSoldText() 
 {
-    m_staticText_price->SetLabelText( "Pojazd został usunięty" );
+    m_staticText_price->SetLabelText( "Pojazd został sprzedany" );
 }

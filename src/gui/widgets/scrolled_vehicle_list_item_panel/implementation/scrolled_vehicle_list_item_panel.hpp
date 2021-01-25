@@ -17,7 +17,7 @@ public:
 
 	void OnViewVehicleButtonClicked( wxCommandEvent& event ) override;
 	void OnEditVehicleButtonClicked( wxCommandEvent& event ) override;
-	void OnDeleteVehicleButtonClicked( wxCommandEvent& event ) override;
+	void OnSellVehicleButtonClicked( wxCommandEvent& event ) override;
 
 	void setRepresentedVehicle( SVehicle *vehicleHandle );
 	SVehicle *getRepresentedVehicle();
@@ -42,7 +42,7 @@ protected:
 	void setEngineCapacityText( unsigned int capacity );
 	void setPriceText( float price );
 
-	void setVehicleDeletedText();
+	void setVehicleSoldText();
 };
 
 #endif // __SCROLLED_VEHICLE_LIST_ITEM_PANEL_H__

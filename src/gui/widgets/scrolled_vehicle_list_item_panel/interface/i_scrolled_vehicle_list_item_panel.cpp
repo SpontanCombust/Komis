@@ -28,8 +28,8 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	m_button_editVehicle = new wxButton( this, wxID_ANY, _("Edytuj"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer101->Add( m_button_editVehicle, 0, wxALL, 5 );
 
-	m_button_deleteVehicle = new wxButton( this, wxID_ANY, _("Usuń"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer101->Add( m_button_deleteVehicle, 0, wxALL, 5 );
+	m_button_sellVehicle = new wxButton( this, wxID_ANY, _("Sprzedaj"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer101->Add( m_button_sellVehicle, 0, wxALL, 5 );
 
 
 	bSizer101->Add( 0, 0, 1, wxEXPAND, 5 );
@@ -47,10 +47,10 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	m_staticText_brandAndModel->Wrap( -1 );
 	m_staticText_brandAndModel->SetFont( wxFont( 20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
-	bSizer9->Add( m_staticText_brandAndModel, 4, wxALIGN_CENTER_VERTICAL|wxEXPAND|wxTOP|wxRIGHT|wxLEFT, 10 );
+	bSizer9->Add( m_staticText_brandAndModel, 4, wxEXPAND|wxLEFT|wxRIGHT|wxTOP, 10 );
 
 
-	bSizer91->Add( bSizer9, 3, wxEXPAND, 5 );
+	bSizer91->Add( bSizer9, 3, wxALIGN_LEFT, 5 );
 
 	wxBoxSizer* bSizer10;
 	bSizer10 = new wxBoxSizer( wxHORIZONTAL );
@@ -62,7 +62,7 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	m_staticText_stateLabel->Wrap( -1 );
 	m_staticText_stateLabel->SetMinSize( wxSize( 35,-1 ) );
 
-	bSizer11->Add( m_staticText_stateLabel, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer11->Add( m_staticText_stateLabel, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
 	m_staticText_state = new wxStaticText( this, wxID_ANY, _("stanTekst"), wxDefaultPosition, wxDefaultSize, wxST_ELLIPSIZE_END );
 	m_staticText_state->Wrap( -1 );
@@ -71,7 +71,7 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	bSizer11->Add( m_staticText_state, 1, wxALIGN_CENTER_VERTICAL|wxALL, 0 );
 
 
-	bSizer10->Add( bSizer11, 1, wxALIGN_CENTER_VERTICAL|wxRIGHT|wxEXPAND, 5 );
+	bSizer10->Add( bSizer11, 1, wxEXPAND|wxRIGHT, 5 );
 
 	wxBoxSizer* bSizer12;
 	bSizer12 = new wxBoxSizer( wxHORIZONTAL );
@@ -80,7 +80,7 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	m_staticText_mileageLabel->Wrap( -1 );
 	m_staticText_mileageLabel->SetMinSize( wxSize( 65,-1 ) );
 
-	bSizer12->Add( m_staticText_mileageLabel, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer12->Add( m_staticText_mileageLabel, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
 	m_staticText_mileage = new wxStaticText( this, wxID_ANY, _("przebiegTekst"), wxDefaultPosition, wxDefaultSize, wxST_ELLIPSIZE_END );
 	m_staticText_mileage->Wrap( -1 );
@@ -89,7 +89,7 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	bSizer12->Add( m_staticText_mileage, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
-	bSizer10->Add( bSizer12, 1, wxALIGN_CENTER_VERTICAL|wxRIGHT|wxLEFT|wxEXPAND, 5 );
+	bSizer10->Add( bSizer12, 1, wxEXPAND|wxLEFT|wxRIGHT, 5 );
 
 	wxBoxSizer* bSizer14;
 	bSizer14 = new wxBoxSizer( wxHORIZONTAL );
@@ -107,7 +107,7 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	bSizer14->Add( m_staticText_engineHorsepower, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
-	bSizer10->Add( bSizer14, 1, wxEXPAND|wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer10->Add( bSizer14, 1, wxEXPAND|wxLEFT, 5 );
 
 	wxBoxSizer* bSizer13;
 	bSizer13 = new wxBoxSizer( wxHORIZONTAL );
@@ -125,10 +125,10 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	bSizer13->Add( m_staticText_engineCapacity, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
-	bSizer10->Add( bSizer13, 1, wxRIGHT|wxLEFT|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
+	bSizer10->Add( bSizer13, 1, wxEXPAND|wxLEFT|wxRIGHT, 5 );
 
 
-	bSizer91->Add( bSizer10, 2, 0, 5 );
+	bSizer91->Add( bSizer10, 2, wxALIGN_LEFT, 5 );
 
 	wxBoxSizer* bSizer15;
 	bSizer15 = new wxBoxSizer( wxVERTICAL );
@@ -137,10 +137,10 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	m_staticText_price->Wrap( -1 );
 	m_staticText_price->SetFont( wxFont( 30, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
-	bSizer15->Add( m_staticText_price, 1, wxALL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
+	bSizer15->Add( m_staticText_price, 1, wxALL|wxEXPAND, 5 );
 
 
-	bSizer91->Add( bSizer15, 4, wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
+	bSizer91->Add( bSizer15, 4, wxALIGN_LEFT, 5 );
 
 
 	bSizer8->Add( bSizer91, 1, wxEXPAND, 5 );
@@ -153,7 +153,7 @@ IScrolledVehicleListItemPanel::IScrolledVehicleListItemPanel( wxWindow* parent, 
 	// Connect Events
 	m_button_viewVehicle->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IScrolledVehicleListItemPanel::OnViewVehicleButtonClicked ), NULL, this );
 	m_button_editVehicle->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IScrolledVehicleListItemPanel::OnEditVehicleButtonClicked ), NULL, this );
-	m_button_deleteVehicle->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IScrolledVehicleListItemPanel::OnDeleteVehicleButtonClicked ), NULL, this );
+	m_button_sellVehicle->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IScrolledVehicleListItemPanel::OnSellVehicleButtonClicked ), NULL, this );
 }
 
 IScrolledVehicleListItemPanel::~IScrolledVehicleListItemPanel()
@@ -161,6 +161,6 @@ IScrolledVehicleListItemPanel::~IScrolledVehicleListItemPanel()
 	// Disconnect Events
 	m_button_viewVehicle->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IScrolledVehicleListItemPanel::OnViewVehicleButtonClicked ), NULL, this );
 	m_button_editVehicle->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IScrolledVehicleListItemPanel::OnEditVehicleButtonClicked ), NULL, this );
-	m_button_deleteVehicle->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IScrolledVehicleListItemPanel::OnDeleteVehicleButtonClicked ), NULL, this );
+	m_button_sellVehicle->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( IScrolledVehicleListItemPanel::OnSellVehicleButtonClicked ), NULL, this );
 
 }

@@ -36,7 +36,7 @@ class IScrolledVehicleListItemPanel : public wxPanel
 	protected:
 		wxButton* m_button_viewVehicle;
 		wxButton* m_button_editVehicle;
-		wxButton* m_button_deleteVehicle;
+		wxButton* m_button_sellVehicle;
 		wxStaticText* m_staticText_brandAndModel;
 		wxStaticText* m_staticText_stateLabel;
 		wxStaticText* m_staticText_state;
@@ -51,7 +51,7 @@ class IScrolledVehicleListItemPanel : public wxPanel
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnViewVehicleButtonClicked( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnEditVehicleButtonClicked( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnDeleteVehicleButtonClicked( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnSellVehicleButtonClicked( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
