@@ -169,6 +169,9 @@ void CVehicleBrowsePanel::OnPrevPageButtonClick( wxCommandEvent& event )
     // remove any vehicles that should be deleted from the current page
     removeVehiclesIfNeeded();    
 
+    // makes all list items blank
+    resetListItems();
+
     // setup list items according to recently changed topmost vehicle ID iterator
     setupListItems();
 
@@ -190,6 +193,9 @@ void CVehicleBrowsePanel::OnNextPageButtonClick( wxCommandEvent& event )
     
     // remove any vehicles that should be deleted from the current page
     removeVehiclesIfNeeded();    
+
+    // makes all list items blank
+    resetListItems();
 
     // setup list items according to recently changed topmost vehicle ID iterator
     setupListItems();
