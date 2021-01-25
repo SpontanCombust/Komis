@@ -58,7 +58,7 @@ IVehicleBrowsePanel::IVehicleBrowsePanel( wxWindow* parent, wxWindowID id, const
 	bSizer7->Add( 0, 0, 1, wxEXPAND, 5 );
 
 
-	bSizer1->Add( bSizer7, 1, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer1->Add( bSizer7, 1, wxEXPAND, 5 );
 
 
 	this->SetSizer( bSizer1 );
