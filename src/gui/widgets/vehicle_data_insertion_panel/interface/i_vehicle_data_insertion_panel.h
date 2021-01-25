@@ -64,6 +64,10 @@ class IVehicleDataInsertionPanel : public wxPanel
 		wxTextCtrl* m_textCtrl_additInfo;
 
 	public:
+		wxString validator_engineCapacity;
+		wxString validator_engineHorsepower;
+		wxString validator_price;
+		wxString validator_mileage;
 
 		IVehicleDataInsertionPanel( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxTAB_TRAVERSAL, const wxString& name = wxEmptyString );
 		~IVehicleDataInsertionPanel();
