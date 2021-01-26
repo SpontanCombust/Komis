@@ -58,14 +58,17 @@ IKomisFrame::IKomisFrame( wxWindow* parent, wxWindowID id, const wxString& title
 	wxBoxSizer* bSizer3;
 	bSizer3 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText1 = new wxStaticText( m_notebook_pageGeneral, wxID_ANY, _("Dodać tu jakieś przywitanie"), wxDefaultPosition, wxDefaultSize, 0 );
+	wxPNGHandler *handler = new wxPNGHandler;
+	wxImage::AddHandler(handler);
+
+	m_bitmap_banner = new wxStaticBitmap( m_notebook_pageGeneral, wxID_ANY, wxBitmap( wxT("../../data/komis.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer3->Add( m_bitmap_banner, 1, wxALL|wxEXPAND, 5 );
+
+	m_staticText1 = new wxStaticText( m_notebook_pageGeneral, wxID_ANY, _("Przejdź do sekcji \"Pojazdy\" by zarządzać pojazdami"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText1->Wrap( -1 );
-	m_staticText1->SetFont( wxFont( 30, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxEmptyString ) );
+	m_staticText1->SetFont( wxFont( 20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxEmptyString ) );
 
 	bSizer3->Add( m_staticText1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-
-	m_notebook_pageGeneral_panel = new wxPanel( m_notebook_pageGeneral, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	bSizer3->Add( m_notebook_pageGeneral_panel, 1, wxEXPAND | wxALL, 5 );
 
 
 	m_notebook_pageGeneral->SetSizer( bSizer3 );
@@ -108,4 +111,5 @@ IKomisFrame::~IKomisFrame()
 {
 	// Disconnect Events
 	this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( IKomisFrame::OnClose ) );
+
 }

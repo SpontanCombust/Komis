@@ -20,9 +20,10 @@
 #include <wx/font.h>
 #include <wx/colour.h>
 #include <wx/settings.h>
+#include <wx/statbmp.h>
 #include <wx/stattext.h>
-#include <wx/panel.h>
 #include <wx/sizer.h>
+#include <wx/panel.h>
 #include <wx/notebook.h>
 #include <wx/frame.h>
 
@@ -42,8 +43,8 @@ class IKomisFrame : public wxFrame
 		wxMenu* m_menu_help;
 		wxNotebook* m_notebook;
 		wxPanel* m_notebook_pageGeneral;
+		wxStaticBitmap* m_bitmap_banner;
 		wxStaticText* m_staticText1;
-		wxPanel* m_notebook_pageGeneral_panel;
 		wxPanel* m_notebook_pageVehicles;
 		CVehicleBrowsePanel* m_notebook_pageVehicles_panel;
 
